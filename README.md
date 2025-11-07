@@ -1,22 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Envis 官方网站
 
-## Getting Started
+Envis 是一个专为 macOS 设计的现代环境管理工具的官方网站。
 
-First, run the development server:
+## 功能特点
+
+- 🎨 现代化的设计界面
+- 📱 完全响应式设计
+- 🔍 SEO 优化
+- ⚡ 基于 Next.js 16+ 构建
+- 🎯 结构化数据支持
+- 🚀 高性能
+
+## 技术栈
+
+- **框架**: Next.js 16 with App Router
+- **样式**: Tailwind CSS v4
+- **语言**: TypeScript
+- **字体**: Geist Sans & Geist Mono
+
+## 开始使用
+
+### 环境要求
+
+- Node.js 18+ 
+- npm 或 yarn
+
+### 安装依赖
+
+```bash
+npm install
+```
+
+### 运行开发服务器
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+打开 [http://localhost:3000](http://localhost:3000) 查看结果。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 构建生产版本
+
+```bash
+npm run build
+npm start
+```
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 

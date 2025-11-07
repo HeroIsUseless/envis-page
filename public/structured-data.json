@@ -1,0 +1,39 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Envis",
+    "description": "专为 macOS 设计的现代环境管理工具，帮助开发者轻松管理多个开发环境、版本控制和依赖项。支持 Node.js、Python、Go 等多种编程语言环境。",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "macOS",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "downloadUrl": "https://github.com/envis/envis/releases",
+    "softwareVersion": "1.0.0",
+    "requirements": "macOS 12.0 或更高版本",
+    "keywords": "环境管理,macOS,开发工具,版本管理,Node.js,Python,Go,开发环境",
+    "author": {
+      "@type": "Organization",
+      "name": "Envis Team"
+    },
+    "publisher": {
+      "@type": "Organization", 
+      "name": "Envis Team"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Envis - macOS 环境管理工具",
+    "description": "专为 macOS 设计的现代环境管理工具官方网站",
+    "url": "https://envis.dev",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://envis.dev/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+]
