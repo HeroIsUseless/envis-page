@@ -240,7 +240,7 @@ export default function Home() {
                 </div>
               </div>
               <a
-                href="/Envis_0.1.0_aarch64.dmg"
+                href="/download/envis.dmg"
                 className="bg-neutral-900 text-white px-6 py-3 rounded-xl inline-block font-medium hover:bg-neutral-800 transition-colors duration-200"
               >
                 下载 macOS .dmg
