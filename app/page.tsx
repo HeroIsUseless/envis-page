@@ -47,7 +47,7 @@ export default function Home() {
 
             {/* Main Content - App Welcome Screen */}
             <div className="flex-1 overflow-y-auto custom-scrollbar flex flex-col items-center">
-                <div className="w-full max-w-2xl px-6 flex flex-col gap-8">
+                <div className="w-full max-w-6xl px-6 flex flex-col gap-8">
                     
                     {/* Hero Section */}
                     <div className="text-center space-y-6 mt-12">
@@ -111,7 +111,7 @@ export default function Home() {
                     {/* Features Section */}
                     <div className="space-y-4">
                         <h2 className="text-xs font-medium text-gray-500 uppercase tracking-wider px-1">核心特性</h2>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                             {[
                                 {
                                     icon: <Rocket className="w-5 h-5 text-blue-500 dark:text-blue-400" />,
@@ -150,7 +150,7 @@ export default function Home() {
                     {/* Quick Actions */}
                     <div className="space-y-3">
                         <h2 className="text-xs font-medium text-gray-500 uppercase tracking-wider px-1">快速开始</h2>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                           <ActionCard 
                               icon={<Plus className="w-5 h-5 text-blue-500 dark:text-blue-400" />} 
                               title="New Environment" 
