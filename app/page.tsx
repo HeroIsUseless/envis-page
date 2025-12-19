@@ -30,7 +30,7 @@ export default function Home() {
                 <div className="flex items-center gap-3">
                     <LanguageSwitcher />
                     <a
-                        href="https://github.com/heroisuseless/configeditor"
+                        href="https://github.com/heroisuseless/envis"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-1.5 px-3 py-1.5 text-xs text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
@@ -57,7 +57,7 @@ export default function Home() {
                     <div className="text-center space-y-8 mt-20">
                         <div className="w-full flex justify-center">
                             <a
-                                href="https://github.com/heroisuseless/configeditor"
+                                href="https://github.com/heroisuseless/envis"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 hover:bg-emerald-100 transition-colors dark:bg-emerald-500/10 dark:text-emerald-300 dark:border-emerald-500/20 dark:hover:bg-emerald-500/20"
@@ -85,7 +85,7 @@ export default function Home() {
                                 <span>{t.hero.downloadBtn}</span>
                             </a>
                             <a
-                                href="https://github.com/heroisuseless/configeditor"
+                                href="https://github.com/heroisuseless/envis"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center gap-2.5 px-7 py-3.5 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 hover:bg-gray-50 dark:hover:bg-white/10 text-gray-900 dark:text-white text-base font-medium transition-all"
@@ -215,13 +215,13 @@ export default function Home() {
                             <div className="flex items-center gap-4">
                                 <span>{t.footer.copyright}</span>
                                 <span className="hidden sm:inline">•</span>
-                                <a href="https://github.com/heroisuseless/configeditor" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 dark:hover:text-white transition-colors">
+                                <a href="https://github.com/heroisuseless/envis" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 dark:hover:text-white transition-colors">
                                     {t.footer.openSource}
                                 </a>
                             </div>
                             <div className="flex items-center gap-3">
                                 <a
-                                    href="https://github.com/heroisuseless/configeditor"
+                                    href="https://github.com/heroisuseless/envis"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="hover:text-gray-900 dark:hover:text-white transition-colors"
@@ -230,7 +230,7 @@ export default function Home() {
                                 </a>
                                 <span>•</span>
                                 <a
-                                    href="https://github.com/heroisuseless/configeditor/blob/main/README.md"
+                                    href="https://github.com/heroisuseless/envis/blob/main/README.md"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="hover:text-gray-900 dark:hover:text-white transition-colors"
