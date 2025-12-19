@@ -1,9 +1,12 @@
 'use client'
 
 import { CopyButton } from './components/interactive'
+import { LanguageSwitcher } from './components/LanguageSwitcher'
+import { useI18n } from './contexts/I18nContext'
 import { Github, ArrowRight, Plus, Terminal, Zap, Book, Layers, Users, Download, Star, Package, Shield, Rocket, ExternalLink } from 'lucide-react'
 
 export default function Home() {
+    const { t } = useI18n()
     return (
         <div className="relative w-full h-full bg-white dark:bg-[#030303] text-gray-900 dark:text-white overflow-hidden flex flex-col font-sans selection:bg-blue-500/20 dark:selection:bg-white/20">
             {/* Cursor-style Background */}
@@ -25,6 +28,7 @@ export default function Home() {
                     <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20">v0.1.0</span>
                 </div>
                 <div className="flex items-center gap-3">
+                    <LanguageSwitcher />
                     <a
                         href="https://github.com/heroisuseless/configeditor"
                         target="_blank"
@@ -32,7 +36,7 @@ export default function Home() {
                         className="flex items-center gap-1.5 px-3 py-1.5 text-xs text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                     >
                         <Github className="w-4 h-4" />
-                        <span>GitHub</span>
+                        <span>{t.nav.github}</span>
                     </a>
                     <a
                         href="/Envis_0.1.0_aarch64.dmg"
@@ -40,7 +44,7 @@ export default function Home() {
                         className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-500 hover:bg-blue-600 text-white text-xs font-medium transition-colors"
                     >
                         <Download className="w-4 h-4" />
-                        <span>下载</span>
+                        <span>{t.nav.download}</span>
                     </a>
                 </div>
             </div>
@@ -59,16 +63,16 @@ export default function Home() {
                                 className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 hover:bg-emerald-100 transition-colors dark:bg-emerald-500/10 dark:text-emerald-300 dark:border-emerald-500/20 dark:hover:bg-emerald-500/20"
                             >
                                 <Star className="w-4.5 h-4.5" />
-                                <span className="text-sm">如果喜欢 Envis，去 GitHub 点个 Star</span>
+                                <span className="text-sm">{t.hero.badge}</span>
                                 <ArrowRight className="w-4 h-4 opacity-70" />
                             </a>
                         </div>
                         <div className="space-y-6">
                             <h1 className="text-6xl md:text-7xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                更智能的环境管理
+                                {t.hero.title}
                             </h1>
                             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
-                                一款全平台环境管理软件，让开发环境切换像呼吸一样自然
+                                {t.hero.subtitle}
                             </p>
                         </div>
                         <div className="flex items-center justify-center gap-4 pt-4">
@@ -78,7 +82,7 @@ export default function Home() {
                                 className="flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-blue-500 hover:bg-blue-600 text-white text-base font-medium transition-all hover:scale-105 shadow-lg shadow-blue-500/25"
                             >
                                 <Download className="w-5 h-5" />
-                                <span>立即下载</span>
+                                <span>{t.hero.downloadBtn}</span>
                             </a>
                             <a
                                 href="https://github.com/heroisuseless/configeditor"
@@ -87,7 +91,7 @@ export default function Home() {
                                 className="flex items-center gap-2.5 px-7 py-3.5 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 hover:bg-gray-50 dark:hover:bg-white/10 text-gray-900 dark:text-white text-base font-medium transition-all"
                             >
                                 <Github className="w-5 h-5" />
-                                <span>查看源码</span>
+                                <span>{t.hero.sourceBtn}</span>
                                 <ExternalLink className="w-4 h-4 opacity-50" />
                             </a>
                         </div>
@@ -95,47 +99,61 @@ export default function Home() {
                         <div className="grid grid-cols-3 gap-8 pt-12 pb-6">
                             <div className="text-center">
                                 <div className="text-3xl font-bold text-gray-900 dark:text-white">10+</div>
-                                <div className="text-sm text-gray-500 dark:text-gray-400 mt-2">支持服务</div>
+                                <div className="text-sm text-gray-500 dark:text-gray-400 mt-2">{t.stats.services}</div>
                             </div>
                             <div className="text-center border-x border-gray-200 dark:border-white/5">
-                                <div className="text-3xl font-bold text-gray-900 dark:text-white">跨平台</div>
-                                <div className="text-sm text-gray-500 dark:text-gray-400 mt-2">全平台支持</div>
+                                <div className="text-3xl font-bold text-gray-900 dark:text-white">{t.stats.crossPlatform}</div>
+                                <div className="text-sm text-gray-500 dark:text-gray-400 mt-2">{t.stats.platformSupport}</div>
                             </div>
                             <div className="text-center">
-                                <div className="text-3xl font-bold text-gray-900 dark:text-white">开源</div>
-                                <div className="text-sm text-gray-500 dark:text-gray-400 mt-2">MIT 协议</div>
+                                <div className="text-3xl font-bold text-gray-900 dark:text-white">{t.stats.openSource}</div>
+                                <div className="text-sm text-gray-500 dark:text-gray-400 mt-2">{t.stats.license}</div>
                             </div>
                         </div>
                     </div>
 
                     {/* Usage Scenarios */}
                     <div className="space-y-6">
-                        <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wider px-1">使用场景</h2>
+                        <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wider px-1">{t.scenarios.title}</h2>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                             {[
                                 {
-                                    icon: <Zap className="w-5 h-5 text-orange-500 dark:text-orange-400" />,
-                                    title: "极速环境搭建",
-                                    description: "开发一个新项目，搭建环境往往是最难的，下载困难，配置繁琐，依赖错误，这时候就可以用envis一键下载安装服务程序，告别繁琐的手动配置与依赖排错，让项目立即进入可运行状态"
+                                    icon: <Zap className="w-6 h-6" />,
+                                    title: t.scenarios.rapid.title,
+                                    description: t.scenarios.rapid.desc,
+                                    gradient: "from-orange-500/10 to-red-500/10",
+                                    iconBg: "bg-gradient-to-br from-orange-500 to-red-500",
+                                    borderColor: "group-hover:border-orange-300 dark:group-hover:border-orange-500/30"
                                 },
                                 {
-                                    icon: <Layers className="w-5 h-5 text-blue-500 dark:text-blue-400" />,
-                                    title: "多项目无缝切换",
-                                    description: "多项目开发时，项目A需要node14，Java8，mysql，而另一个项目需要Node20，Java11，mariadb，每次切换项目开发都要先切换一串环境，比较麻烦，用envis可一键切换环境。轻松切换复杂的项目依赖。"
+                                    icon: <Layers className="w-6 h-6" />,
+                                    title: t.scenarios.switch.title,
+                                    description: t.scenarios.switch.desc,
+                                    gradient: "from-blue-500/10 to-cyan-500/10",
+                                    iconBg: "bg-gradient-to-br from-blue-500 to-cyan-500",
+                                    borderColor: "group-hover:border-blue-300 dark:group-hover:border-blue-500/30"
                                 },
                                 {
-                                    icon: <Users className="w-5 h-5 text-emerald-500 dark:text-emerald-400" />,
-                                    title: "团队环境标准化",
-                                    description: "每个电脑都要配置一遍环境，比较麻烦，envis支持导出导入环境配置，一键搭建完全相同环境，让项目稳定运行起来。消除“在我电脑上能跑”的困扰，确保所有团队成员拥有一致的开发环境，保障项目在不同设备上的稳定运行。"
+                                    icon: <Users className="w-6 h-6" />,
+                                    title: t.scenarios.team.title,
+                                    description: t.scenarios.team.desc,
+                                    gradient: "from-emerald-500/10 to-teal-500/10",
+                                    iconBg: "bg-gradient-to-br from-emerald-500 to-teal-500",
+                                    borderColor: "group-hover:border-emerald-300 dark:group-hover:border-emerald-500/30"
                                 }
                             ].map((scenario, index) => (
-                                <div key={index} className="flex flex-col items-start gap-4 p-6 rounded-2xl border border-gray-200 dark:border-white/5 bg-gray-50 dark:bg-white/[0.02] hover:bg-gray-100 dark:hover:bg-white/[0.05] hover:border-gray-300 dark:hover:border-white/10 transition-all group h-full">
-                                    <div className="p-3 rounded-xl bg-white dark:bg-white/5 border border-gray-200 dark:border-white/5 group-hover:border-gray-300 dark:group-hover:border-white/10 transition-colors shrink-0">
-                                        {scenario.icon}
+                                <div key={index} className={`relative flex flex-col items-start gap-5 p-7 rounded-2xl border border-gray-200 dark:border-white/5 bg-gradient-to-br ${scenario.gradient} backdrop-blur-sm hover:shadow-xl dark:hover:shadow-2xl hover:-translate-y-1 ${scenario.borderColor} transition-all duration-300 group h-full overflow-hidden`}>
+                                    {/* Background decoration */}
+                                    <div className={`absolute top-0 right-0 w-32 h-32 ${scenario.iconBg} opacity-5 blur-3xl group-hover:opacity-10 transition-opacity duration-300`}></div>
+                                    
+                                    <div className={`relative p-3.5 rounded-xl ${scenario.iconBg} shadow-lg group-hover:scale-110 transition-transform duration-300 shrink-0`}>
+                                        <div className="text-white">
+                                            {scenario.icon}
+                                        </div>
                                     </div>
-                                    <div>
-                                        <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{scenario.title}</h3>
-                                        <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{scenario.description}</p>
+                                    <div className="relative">
+                                        <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 dark:group-hover:from-blue-400 dark:group-hover:to-purple-400 transition-all duration-300">{scenario.title}</h3>
+                                        <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{scenario.description}</p>
                                     </div>
                                 </div>
                             ))}
@@ -144,28 +162,28 @@ export default function Home() {
 
                     {/* Features Section */}
                     <div className="space-y-6">
-                        <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wider px-1">核心特性</h2>
+                        <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wider px-1">{t.features.title}</h2>
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                             {[
                                 {
                                     icon: <Rocket className="w-5 h-5 text-blue-500 dark:text-blue-400" />,
-                                    title: "一键安装",
-                                    desc: "自动下载、配置、启动服务程序"
+                                    title: t.features.oneClickInstall.title,
+                                    desc: t.features.oneClickInstall.desc
                                 },
                                 {
                                     icon: <Layers className="w-5 h-5 text-purple-500 dark:text-purple-400" />,
-                                    title: "环境隔离",
-                                    desc: "多项目环境完全独立，互不干扰"
+                                    title: t.features.isolation.title,
+                                    desc: t.features.isolation.desc
                                 },
                                 {
                                     icon: <Package className="w-5 h-5 text-emerald-500 dark:text-emerald-400" />,
-                                    title: "配置导出",
-                                    desc: "支持一键导出导入环境配置"
+                                    title: t.features.export.title,
+                                    desc: t.features.export.desc
                                 },
                                 {
                                     icon: <Shield className="w-5 h-5 text-orange-500 dark:text-orange-400" />,
-                                    title: "安全可靠",
-                                    desc: "本地运行，数据完全掌控"
+                                    title: t.features.secure.title,
+                                    desc: t.features.secure.desc
                                 }
                             ].map((feature, index) => (
                                 <div key={index} className="flex flex-col items-start gap-4 p-6 rounded-2xl border border-gray-200 dark:border-white/5 bg-gray-50 dark:bg-white/[0.02] hover:bg-gray-100 dark:hover:bg-white/[0.05] hover:border-gray-300 dark:hover:border-white/10 transition-all">
@@ -183,11 +201,11 @@ export default function Home() {
 
                     {/* Getting Started */}
                     <div className="space-y-6">
-                        <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wider px-1">快速开始</h2>
+                        <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wider px-1">{t.quickStart.title}</h2>
                         <div className="grid grid-cols-3 gap-5">
-                            <Step number="1" title="Create" desc="New Environment" />
-                            <Step number="2" title="Configure" desc="Service Configuration" />
-                            <Step number="3" title="Run" desc="One-Click Start" />
+                            <Step number="1" title={t.quickStart.step1.title} desc={t.quickStart.step1.desc} />
+                            <Step number="2" title={t.quickStart.step2.title} desc={t.quickStart.step2.desc} />
+                            <Step number="3" title={t.quickStart.step3.title} desc={t.quickStart.step3.desc} />
                         </div>
                     </div>
 
@@ -195,10 +213,10 @@ export default function Home() {
                     <div className="border-t border-gray-200 dark:border-white/5 pt-8 pb-12 mt-4">
                         <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-500 dark:text-gray-400">
                             <div className="flex items-center gap-4">
-                                <span>© 2025 Envis</span>
+                                <span>{t.footer.copyright}</span>
                                 <span className="hidden sm:inline">•</span>
                                 <a href="https://github.com/heroisuseless/configeditor" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 dark:hover:text-white transition-colors">
-                                    开源项目
+                                    {t.footer.openSource}
                                 </a>
                             </div>
                             <div className="flex items-center gap-3">
@@ -208,7 +226,7 @@ export default function Home() {
                                     rel="noopener noreferrer"
                                     className="hover:text-gray-900 dark:hover:text-white transition-colors"
                                 >
-                                    GitHub
+                                    {t.footer.github}
                                 </a>
                                 <span>•</span>
                                 <a
@@ -217,7 +235,7 @@ export default function Home() {
                                     rel="noopener noreferrer"
                                     className="hover:text-gray-900 dark:hover:text-white transition-colors"
                                 >
-                                    文档
+                                    {t.footer.docs}
                                 </a>
                             </div>
                         </div>
