@@ -1,6 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
+export const dynamic = 'force-static'
 
 export const alt = 'Envis - 更智能的环境管理'
 export const size = {
