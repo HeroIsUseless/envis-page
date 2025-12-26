@@ -44,9 +44,7 @@ export default function Home() {
             {/* Top Navigation */}
             <nav className="flex justify-between items-center px-6 py-3 z-50 border-b border-gray-200 dark:border-white/5 bg-white/50 dark:bg-[#030303]/50 backdrop-blur-xl sticky top-0" aria-label="主导航">
                 <div className="flex items-center gap-2">
-                    <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                        <span className="text-white text-sm font-bold">E</span>
-                    </div>
+                    <img src="/app-icon.png" alt="Envis Logo" className="w-7 h-7 rounded-lg" />
                     <span className="font-semibold text-gray-900 dark:text-white">Envis</span>
                     <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20">v0.1.0</span>
                 </div>
@@ -73,7 +71,7 @@ export default function Home() {
             </nav>
 
             {/* Main Content - App Welcome Screen */}
-            <main className="flex-1 overflow-y-auto custom-scrollbar flex flex-col items-center">
+            <main className="flex-1 overflow-y-auto custom-scrollbar flex flex-col items-center relative z-10">
                 <div className="w-full max-w-7xl px-8 flex flex-col gap-16">
                     
                     {/* Hero Section */}
@@ -118,6 +116,14 @@ export default function Home() {
                                 <span>{t.hero.sourceBtn}</span>
                                 <ExternalLink className="w-4 h-4 opacity-50" />
                             </a>
+                        </div>
+                        {/* Screenshot */}
+                        <div className="w-full flex justify-center pt-8">
+                            <img 
+                                src="/Shot.png" 
+                                alt="Envis Screenshot" 
+                                className="w-full max-w-4xl rounded-2xl shadow-2xl border border-gray-200 dark:border-white/10"
+                            />
                         </div>
                         {/* Stats */}
                         <div className="grid grid-cols-3 gap-8 pt-12 pb-6">
