@@ -13,7 +13,7 @@ function I18nProviderWrapper({ children }: { children: React.ReactNode }) {
 
 export function ClientProviders({ children }: { children: React.ReactNode }) {
   return (
-    <Suspense fallback={<>{children}</>}>
+    <Suspense fallback={<div className="min-h-screen bg-white dark:bg-[#030303]" />}>
       <I18nProviderWrapper>
         {children}
       </I18nProviderWrapper>
