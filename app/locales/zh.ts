@@ -1,4 +1,11 @@
 export const zh = {
+  seo: {
+    title: "Envis - 更智能的环境管理工具",
+    description: "一款全平台环境管理软件，让开发环境切换像呼吸一样自然。支持一键安装、环境隔离、配置导出，安全可靠。支持 10+ 种开发服务。",
+    ogTitle: "Envis - 更智能的环境管理工具",
+    ogDescription: "一款全平台环境管理软件，让开发环境切换像呼吸一样自然。支持一键安装、环境隔离、配置导出。",
+    keywords: ["环境管理", "开发工具", "macOS", "Windows", "Linux", "跨平台", "版本管理", "Node.js", "Python", "Go", "Docker", "开发环境", "环境隔离", "配置管理"]
+  },
   nav: {
     github: "GitHub",
     download: "下载"

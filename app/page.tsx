@@ -1,14 +1,37 @@
 'use client'
 
+import { useEffect } from 'react'
 import { CopyButton } from './components/interactive'
 import { LanguageSwitcher } from './components/LanguageSwitcher'
 import { useI18n } from './contexts/I18nContext'
 import { Github, ArrowRight, Plus, Terminal, Zap, Book, Layers, Users, Download, Star, Package, Shield, Rocket, ExternalLink } from 'lucide-react'
 
 export default function Home() {
-    const { t } = useI18n()
+    const { t, locale } = useI18n()
+    
+    // 动态更新页面元数据
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            document.title = t.seo?.title || 'Envis - 更智能的环境管理工具'
+            
+            const updateMetaTag = (selector: string, content: string) => {
+                const tag = document.querySelector(selector)
+                if (tag) tag.setAttribute('content', content)
+            }
+            
+            if (t.seo) {
+                updateMetaTag('meta[name="description"]', t.seo.description)
+                updateMetaTag('meta[property="og:title"]', t.seo.ogTitle)
+                updateMetaTag('meta[property="og:description"]', t.seo.ogDescription)
+                updateMetaTag('meta[name="twitter:title"]', t.seo.ogTitle)
+                updateMetaTag('meta[name="twitter:description"]', t.seo.ogDescription)
+                updateMetaTag('meta[property="og:locale"]', locale === 'zh' ? 'zh_CN' : 'en_US')
+            }
+        }
+    }, [t, locale])
+    
     return (
-        <div className="relative w-full h-full bg-white dark:bg-[#030303] text-gray-900 dark:text-white overflow-hidden flex flex-col font-sans selection:bg-blue-500/20 dark:selection:bg-white/20">
+        <div className="relative w-full h-full bg-white dark:bg-[#030303] text-gray-900 dark:text-white overflow-hidden flex flex-col font-sans selection:bg-blue-500/20 dark:selection:bg-white/20" role="main">
             {/* Cursor-style Background */}
             <div className="absolute inset-0 z-0 pointer-events-none">
                 {/* Subtle gradient glow at the top */}
@@ -19,7 +42,7 @@ export default function Home() {
             </div>
 
             {/* Top Navigation */}
-            <div className="flex justify-between items-center px-6 py-3 z-50 border-b border-gray-200 dark:border-white/5 bg-white/50 dark:bg-[#030303]/50 backdrop-blur-xl sticky top-0">
+            <nav className="flex justify-between items-center px-6 py-3 z-50 border-b border-gray-200 dark:border-white/5 bg-white/50 dark:bg-[#030303]/50 backdrop-blur-xl sticky top-0" aria-label="主导航">
                 <div className="flex items-center gap-2">
                     <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
                         <span className="text-white text-sm font-bold">E</span>
@@ -30,7 +53,7 @@ export default function Home() {
                 <div className="flex items-center gap-3">
                     <LanguageSwitcher />
                     <a
-                        href="https://github.com/heroisuseless/envis"
+                        href="https://github.com/xopenbeta/envis-app"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-1.5 px-3 py-1.5 text-xs text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
@@ -47,17 +70,17 @@ export default function Home() {
                         <span>{t.nav.download}</span>
                     </a>
                 </div>
-            </div>
+            </nav>
 
             {/* Main Content - App Welcome Screen */}
-            <div className="flex-1 overflow-y-auto custom-scrollbar flex flex-col items-center">
+            <main className="flex-1 overflow-y-auto custom-scrollbar flex flex-col items-center">
                 <div className="w-full max-w-7xl px-8 flex flex-col gap-16">
                     
                     {/* Hero Section */}
-                    <div className="text-center space-y-8 mt-20">
+                    <section className="text-center space-y-8 mt-20" aria-labelledby="hero-title">
                         <div className="w-full flex justify-center">
                             <a
-                                href="https://github.com/heroisuseless/envis"
+                                href="https://github.com/xopenbeta/envis-app"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 hover:bg-emerald-100 transition-colors dark:bg-emerald-500/10 dark:text-emerald-300 dark:border-emerald-500/20 dark:hover:bg-emerald-500/20"
@@ -68,7 +91,7 @@ export default function Home() {
                             </a>
                         </div>
                         <div className="space-y-6">
-                            <h1 className="text-6xl md:text-7xl font-bold tracking-tight text-gray-900 dark:text-white">
+                            <h1 id="hero-title" className="text-6xl md:text-7xl font-bold tracking-tight text-gray-900 dark:text-white">
                                 {t.hero.title}
                             </h1>
                             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
@@ -80,12 +103,13 @@ export default function Home() {
                                 href="/Envis_0.1.0_aarch64.dmg"
                                 download
                                 className="flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-blue-500 hover:bg-blue-600 text-white text-base font-medium transition-all hover:scale-105 shadow-lg shadow-blue-500/25"
+                                aria-label="下载 Envis v0.1.0"
                             >
                                 <Download className="w-5 h-5" />
                                 <span>{t.hero.downloadBtn}</span>
                             </a>
                             <a
-                                href="https://github.com/heroisuseless/envis"
+                                href="https://github.com/xopenbeta/envis-app"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center gap-2.5 px-7 py-3.5 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 hover:bg-gray-50 dark:hover:bg-white/10 text-gray-900 dark:text-white text-base font-medium transition-all"
@@ -110,11 +134,11 @@ export default function Home() {
                                 <div className="text-sm text-gray-500 dark:text-gray-400 mt-2">{t.stats.license}</div>
                             </div>
                         </div>
-                    </div>
+                    </section>
 
                     {/* Usage Scenarios */}
-                    <div className="space-y-6">
-                        <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wider px-1">{t.scenarios.title}</h2>
+                    <section className="space-y-6" aria-labelledby="scenarios-title">
+                        <h2 id="scenarios-title" className="text-sm font-semibold text-gray-500 uppercase tracking-wider px-1">{t.scenarios.title}</h2>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                             {[
                                 {
@@ -158,11 +182,11 @@ export default function Home() {
                                 </div>
                             ))}
                         </div>
-                    </div>
+                    </section>
 
                     {/* Features Section */}
-                    <div className="space-y-6">
-                        <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wider px-1">{t.features.title}</h2>
+                    <section className="space-y-6" aria-labelledby="features-title">
+                        <h2 id="features-title" className="text-sm font-semibold text-gray-500 uppercase tracking-wider px-1">{t.features.title}</h2>
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                             {[
                                 {
@@ -197,31 +221,31 @@ export default function Home() {
                                 </div>
                             ))}
                         </div>
-                    </div>
+                    </section>
 
                     {/* Getting Started */}
-                    <div className="space-y-6">
-                        <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wider px-1">{t.quickStart.title}</h2>
+                    <section className="space-y-6" aria-labelledby="quickstart-title">
+                        <h2 id="quickstart-title" className="text-sm font-semibold text-gray-500 uppercase tracking-wider px-1">{t.quickStart.title}</h2>
                         <div className="grid grid-cols-3 gap-5">
                             <Step number="1" title={t.quickStart.step1.title} desc={t.quickStart.step1.desc} />
                             <Step number="2" title={t.quickStart.step2.title} desc={t.quickStart.step2.desc} />
                             <Step number="3" title={t.quickStart.step3.title} desc={t.quickStart.step3.desc} />
                         </div>
-                    </div>
+                    </section>
 
                     {/* Footer */}
-                    <div className="border-t border-gray-200 dark:border-white/5 pt-8 pb-12 mt-4">
+                    <footer className="border-t border-gray-200 dark:border-white/5 pt-8 pb-12 mt-4" aria-label="页脚">
                         <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-500 dark:text-gray-400">
                             <div className="flex items-center gap-4">
                                 <span>{t.footer.copyright}</span>
                                 <span className="hidden sm:inline">•</span>
-                                <a href="https://github.com/heroisuseless/envis" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 dark:hover:text-white transition-colors">
+                                <a href="https://github.com/xopenbeta/envis-app" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 dark:hover:text-white transition-colors">
                                     {t.footer.openSource}
                                 </a>
                             </div>
                             <div className="flex items-center gap-3">
                                 <a
-                                    href="https://github.com/heroisuseless/envis"
+                                    href="https://github.com/xopenbeta/envis-app"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="hover:text-gray-900 dark:hover:text-white transition-colors"
@@ -230,7 +254,7 @@ export default function Home() {
                                 </a>
                                 <span>•</span>
                                 <a
-                                    href="https://github.com/heroisuseless/envis/blob/main/README.md"
+                                    href="https://github.com/xopenbeta/envis-app/blob/main/README.md"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="hover:text-gray-900 dark:hover:text-white transition-colors"
@@ -239,10 +263,10 @@ export default function Home() {
                                 </a>
                             </div>
                         </div>
-                    </div>
+                    </footer>
 
                 </div>
-            </div>
+            </main>
 
         </div>
     )

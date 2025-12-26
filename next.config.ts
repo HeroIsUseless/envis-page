@@ -8,13 +8,17 @@ const nextConfig: NextConfig = {
   },
   // 启用实验性功能
   experimental: {
-    optimizePackageImports: ['@heroicons/react']
+    optimizePackageImports: ['@heroicons/react', 'lucide-react']
   },
   // SEO 和性能优化
   compress: true,
   poweredByHeader: false,
   // 静态导出配置
-  distDir: 'out'
+  distDir: 'out',
+  // 生成 sitemap 和 robots.txt
+  generateBuildId: async () => {
+    return 'envis-build-' + Date.now()
+  },
 };
 
 export default nextConfig;

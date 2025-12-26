@@ -1,6 +1,13 @@
 import { Translations } from './zh'
 
 export const en: Translations = {
+  seo: {
+    title: "Envis - Smarter Environment Management Tool",
+    description: "A cross-platform environment management tool that makes switching development environments as natural as breathing. Supports one-click installation, environment isolation, config export. Reliable and secure. 10+ services supported.",
+    ogTitle: "Envis - Smarter Environment Management Tool",
+    ogDescription: "A cross-platform environment management tool that makes switching development environments as natural as breathing. Supports one-click installation, environment isolation, and config export.",
+    keywords: ["environment management", "development tools", "macOS", "Windows", "Linux", "cross-platform", "version management", "Node.js", "Python", "Go", "Docker", "dev environment", "environment isolation", "config management"]
+  },
   nav: {
     github: "GitHub",
     download: "Download"

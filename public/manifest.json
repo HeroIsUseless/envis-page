@@ -1,0 +1,23 @@
+{
+  "name": "Envis",
+  "short_name": "Envis",
+  "description": "一款全平台环境管理软件，让开发环境切换像呼吸一样自然",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#030303",
+  "theme_color": "#3B82F6",
+  "icons": [
+    {
+      "src": "/icon",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-icon",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["developer tools", "utilities"],
+  "lang": "zh-CN"
+}
