@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { I18nProvider } from "./contexts/I18nContext";
+import { ClientProviders } from "./components/ClientProviders";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -72,11 +72,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-CN">
+    <html lang="zh-CN" suppressHydrationWarning>
       <head>
         <meta name="theme-color" content="#3B82F6" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#030303" media="(prefers-color-scheme: dark)" />
         <link rel="manifest" href="/manifest.json" />
+        <link rel="alternate" hrefLang="zh-CN" href="https://envis.app" />
+        <link rel="alternate" hrefLang="en-US" href="https://envis.app?lang=en" />
+        <link rel="alternate" hrefLang="x-default" href="https://envis.app" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -160,9 +163,9 @@ export default function RootLayout({
       <body
         className={`${inter.variable} font-inter antialiased`}
       >
-        <I18nProvider>
+        <ClientProviders>
           {children}
-        </I18nProvider>
+        </ClientProviders>
       </body>
     </html>
   );

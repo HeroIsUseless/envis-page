@@ -24,15 +24,25 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
   const searchParams = useSearchParams()
   const pathname = usePathname()
   const router = useRouter()
-  const [locale, setLocaleState] = useState<Locale>('zh')
+  
+  // Initialize with default locale to avoid undefined context
+  const [locale, setLocaleState] = useState<Locale>(() => {
+    // Try to get from URL params during initial render
+    const urlLang = searchParams.get('lang')
+    if (urlLang === 'en' || urlLang === 'zh') {
+      return urlLang
+    }
+    return 'zh' // default
+  })
+  
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
     setMounted(true)
     
-    // Priority: URL param > localStorage > default
+    // Priority: URL param > localStorage > browser language > default
     const urlLang = searchParams.get('lang')
-    const savedLocale = localStorage.getItem('locale') as Locale
+    const savedLocale = typeof window !== 'undefined' ? localStorage.getItem('locale') as Locale : null
     
     let initialLocale: Locale = 'zh'
     
@@ -40,7 +50,7 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
       initialLocale = urlLang
     } else if (savedLocale && (savedLocale === 'zh' || savedLocale === 'en')) {
       initialLocale = savedLocale
-    } else {
+    } else if (typeof window !== 'undefined') {
       // Try to detect from browser language
       const browserLang = navigator.language.toLowerCase()
       if (browserLang.startsWith('en')) {
@@ -48,19 +58,25 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
       }
     }
     
-    setLocaleState(initialLocale)
-    localStorage.setItem('locale', initialLocale)
+    if (initialLocale !== locale) {
+      setLocaleState(initialLocale)
+    }
     
-    // Update HTML lang attribute
-    document.documentElement.lang = initialLocale === 'zh' ? 'zh-CN' : 'en-US'
-  }, [searchParams])
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('locale', initialLocale)
+      // Update HTML lang attribute
+      document.documentElement.lang = initialLocale === 'zh' ? 'zh-CN' : 'en-US'
+    }
+  }, [searchParams, locale])
 
   const setLocale = (newLocale: Locale) => {
     setLocaleState(newLocale)
-    localStorage.setItem('locale', newLocale)
     
-    // Update HTML lang attribute
-    document.documentElement.lang = newLocale === 'zh' ? 'zh-CN' : 'en-US'
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('locale', newLocale)
+      // Update HTML lang attribute
+      document.documentElement.lang = newLocale === 'zh' ? 'zh-CN' : 'en-US'
+    }
     
     // Update URL with language parameter
     const params = new URLSearchParams(searchParams.toString())
@@ -72,11 +88,6 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
     
     const newUrl = params.toString() ? `${pathname}?${params.toString()}` : pathname
     router.replace(newUrl, { scroll: false })
-  }
-
-  // Avoid hydration mismatch
-  if (!mounted) {
-    return <>{children}</>
   }
 
   return (
