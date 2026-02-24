@@ -42,7 +42,7 @@ export default function Home() {
             </div>
 
             {/* Top Navigation */}
-            <nav className="flex justify-between items-center px-6 py-3 z-50 border-b border-gray-200 dark:border-white/5 bg-white/50 dark:bg-[#030303]/50 backdrop-blur-xl sticky top-0" aria-label="主导航">
+            <nav className="flex justify-between items-center px-4 py-2 sm:px-6 sm:py-3 z-50 border-b border-gray-200 dark:border-white/5 bg-white/50 dark:bg-[#030303]/50 backdrop-blur-xl sticky top-0" aria-label="主导航">
                 <div className="flex items-center gap-2">
                     <img src="/app-icon.png" alt="Envis Logo" className="w-7 h-7 rounded-lg" />
                     <span className="font-semibold text-gray-900 dark:text-white">Envis</span>
@@ -89,10 +89,10 @@ export default function Home() {
                             </a>
                         </div>
                         <div className="space-y-6">
-                            <h1 id="hero-title" className="text-6xl md:text-7xl font-bold tracking-tight text-gray-900 dark:text-white">
+                            <h1 id="hero-title" className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 dark:text-white">
                                 {t.hero.title}
                             </h1>
-                            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
+                            <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
                                 {t.hero.subtitle}
                             </p>
                         </div>
@@ -100,7 +100,7 @@ export default function Home() {
                             <a
                                 href="/Envis_0.1.0_aarch64.dmg"
                                 download
-                                className="flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-blue-500 hover:bg-blue-600 text-white text-base font-medium transition-all hover:scale-105 shadow-lg shadow-blue-500/25"
+                                className="flex items-center gap-2.5 px-4 py-2 rounded-xl md:px-7 md:py-3.5 bg-blue-500 hover:bg-blue-600 text-white text-sm md:text-base font-medium transition-all hover:scale-105 shadow-lg shadow-blue-500/25"
                                 aria-label="下载 Envis v0.1.0"
                             >
                                 <Download className="w-5 h-5" />
@@ -110,7 +110,7 @@ export default function Home() {
                                 href="https://github.com/xopenbeta/envis-app"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-2.5 px-7 py-3.5 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 hover:bg-gray-50 dark:hover:bg-white/10 text-gray-900 dark:text-white text-base font-medium transition-all"
+                                className="flex items-center gap-2.5 px-4 py-2 rounded-xl md:px-7 md:py-3.5 border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 hover:bg-gray-50 dark:hover:bg-white/10 text-gray-900 dark:text-white text-sm md:text-base font-medium transition-all"
                             >
                                 <Github className="w-5 h-5" />
                                 <span>{t.hero.sourceBtn}</span>
@@ -126,17 +126,17 @@ export default function Home() {
                             />
                         </div>
                         {/* Stats */}
-                        <div className="grid grid-cols-3 gap-8 pt-12 pb-6">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 pb-6">
                             <div className="text-center">
-                                <div className="text-3xl font-bold text-gray-900 dark:text-white">10+</div>
+                                <div className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">10+</div>
                                 <div className="text-sm text-gray-500 dark:text-gray-400 mt-2">{t.stats.services}</div>
                             </div>
                             <div className="text-center border-x border-gray-200 dark:border-white/5">
-                                <div className="text-3xl font-bold text-gray-900 dark:text-white">{t.stats.crossPlatform}</div>
+                                <div className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">{t.stats.crossPlatform}</div>
                                 <div className="text-sm text-gray-500 dark:text-gray-400 mt-2">{t.stats.platformSupport}</div>
                             </div>
                             <div className="text-center">
-                                <div className="text-3xl font-bold text-gray-900 dark:text-white">{t.stats.openSource}</div>
+                                <div className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">{t.stats.openSource}</div>
                                 <div className="text-sm text-gray-500 dark:text-gray-400 mt-2">{t.stats.license}</div>
                             </div>
                         </div>
@@ -232,7 +232,7 @@ export default function Home() {
                     {/* Getting Started */}
                     <section className="space-y-6" aria-labelledby="quickstart-title">
                         <h2 id="quickstart-title" className="text-sm font-semibold text-gray-500 uppercase tracking-wider px-1">{t.quickStart.title}</h2>
-                        <div className="grid grid-cols-3 gap-5">
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
                             <Step number="1" title={t.quickStart.step1.title} desc={t.quickStart.step1.desc} />
                             <Step number="2" title={t.quickStart.step2.title} desc={t.quickStart.step2.desc} />
                             <Step number="3" title={t.quickStart.step3.title} desc={t.quickStart.step3.desc} />
