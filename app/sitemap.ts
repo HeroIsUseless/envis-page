@@ -8,16 +8,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     {
-      url: baseUrl,
+      url: `${baseUrl}/zh/`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 1.0,
-      alternates: {
-        languages: {
-          'zh-CN': `${baseUrl}`,
-          'en-US': `${baseUrl}?lang=en`,
-        },
-      },
+    },
+    {
+      url: `${baseUrl}/en/`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 1.0,
+    },
+    {
+      url: `${baseUrl}/zh/docs/`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/en/docs/`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
     },
   ]
 }

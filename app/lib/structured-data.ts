@@ -8,7 +8,7 @@ export function generateStructuredData({ locale }: StructuredDataConfig) {
   const isZh = locale === 'zh'
   
   const baseUrl = 'https://envis.app'
-  const localeUrl = isZh ? baseUrl : `${baseUrl}?lang=en`
+  const localeUrl = isZh ? `${baseUrl}/zh/` : `${baseUrl}/en/`
   
   return {
     "@context": "https://schema.org",
@@ -32,13 +32,6 @@ export function generateStructuredData({ locale }: StructuredDataConfig) {
         "softwareVersion": "0.1.0",
         "releaseNotes": "https://github.com/xopenbeta/envis-app/releases/tag/v0.1.0",
         "screenshot": `${baseUrl}/opengraph-image`,
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "5",
-          "ratingCount": "1",
-          "bestRating": "5",
-          "worstRating": "1"
-        },
         "featureList": isZh ? [
           "一键安装：自动下载、配置、启动服务程序",
           "环境隔离：多项目环境完全独立，互不干扰",
@@ -58,7 +51,7 @@ export function generateStructuredData({ locale }: StructuredDataConfig) {
           "@type": "Organization",
           "@id": `${baseUrl}/#organization`,
           "name": "Envis Team",
-          "url": "https://github.com/xopenbeta"
+          "url": "https://github.com/xopenbeta/envis-app"
         },
         "publisher": {
           "@type": "Organization",
@@ -87,7 +80,7 @@ export function generateStructuredData({ locale }: StructuredDataConfig) {
         "url": baseUrl,
         "logo": {
           "@type": "ImageObject",
-          "url": `${baseUrl}/icon`,
+          "url": `${baseUrl}/app-icon.png`,
           "width": 32,
           "height": 32
         },

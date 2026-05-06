@@ -22,6 +22,6 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: 'https://envis.app/sitemap.xml',
-    host: 'https://envis.app',
+    host: 'https://envis.app/zh/',
   }
 }

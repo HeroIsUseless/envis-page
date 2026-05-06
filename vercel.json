@@ -1,0 +1,38 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "lang",
+          "value": "en"
+        }
+      ],
+      "destination": "/en/",
+      "permanent": true
+    },
+    {
+      "source": "/docs",
+      "has": [
+        {
+          "type": "query",
+          "key": "lang",
+          "value": "en"
+        }
+      ],
+      "destination": "/en/docs/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "destination": "/zh/",
+      "permanent": true
+    },
+    {
+      "source": "/docs",
+      "destination": "/zh/docs/",
+      "permanent": true
+    }
+  ]
+}
