@@ -53,9 +53,10 @@ export default async function ZhDocs01MainPage() {
               img({ src, alt }) {
                 if (!src) return null
                 // 将 ./1.png 这类相对路径改写为 public 目录下的绝对路径
-                const resolvedSrc = src.startsWith('./')
-                  ? `${IMAGE_BASE}/${src.slice(2)}`
-                  : src
+                const srcStr = src as string
+                const resolvedSrc = srcStr.startsWith('./')
+                  ? `${IMAGE_BASE}/${srcStr.slice(2)}`
+                  : srcStr
                 return (
                   <Image
                     src={resolvedSrc}
@@ -73,7 +74,6 @@ export default async function ZhDocs01MainPage() {
           </ReactMarkdown>
         </article>
 
-        <p className={styles.alert}>docs/01_main/index.md</p>
       </div>
     </main>
   )

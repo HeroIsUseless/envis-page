@@ -73,7 +73,7 @@ export default async function ZhDocsPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
       <div className={styles.container}>
         <h1 className={styles.title}>文档中心</h1>
-        <p className={styles.subtitle}>内容由项目内 Markdown 文件驱动，支持直接编辑。</p>
+        <p className={styles.subtitle}>Envis 使用说明与教程文档。</p>
 
         <div className={styles.docList}>
           <a href="/zh/docs/01_main/" className={styles.docItem}>
@@ -85,8 +85,6 @@ export default async function ZhDocsPage() {
         <article className={styles.markdown}>
           <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown>
         </article>
-
-        <p className={styles.alert}>docs/index.md</p>
       </div>
     </main>
   )

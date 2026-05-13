@@ -53,9 +53,10 @@ export default async function EnDocs01MainPage() {
             components={{
               img({ src, alt }) {
                 if (!src) return null
-                const resolvedSrc = src.startsWith('./')
-                  ? `${IMAGE_BASE}/${src.slice(2)}`
-                  : src
+                const srcStr = src as string
+                const resolvedSrc = srcStr.startsWith('./')
+                  ? `${IMAGE_BASE}/${srcStr.slice(2)}`
+                  : srcStr
                 return (
                   <Image
                     src={resolvedSrc}
@@ -73,8 +74,7 @@ export default async function EnDocs01MainPage() {
           </ReactMarkdown>
         </article>
 
-        <p className={styles.alert}>docs/01_main/index.md</p>
-      </div>
+        </div>
     </main>
   )
 }
