@@ -77,6 +77,13 @@ export default async function EnDocsPage() {
           Content is driven by markdown files in this repository and can be edited directly.
         </p>
 
+        <div className={styles.docList}>
+          <a href="/en/docs/01_main/" className={styles.docItem}>
+            <h2>Introduction</h2>
+            <p>Learn what Envis is, what problems it solves, and how to use it.</p>
+          </a>
+        </div>
+
         <article className={styles.markdown}>
           <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown>
         </article>

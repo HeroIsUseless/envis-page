@@ -75,6 +75,13 @@ export default async function ZhDocsPage() {
         <h1 className={styles.title}>文档中心</h1>
         <p className={styles.subtitle}>内容由项目内 Markdown 文件驱动，支持直接编辑。</p>
 
+        <div className={styles.docList}>
+          <a href="/zh/docs/01_main/" className={styles.docItem}>
+            <h2>Envis 介绍</h2>
+            <p>了解 Envis 是什么、解决什么问题以及如何使用。</p>
+          </a>
+        </div>
+
         <article className={styles.markdown}>
           <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown>
         </article>
