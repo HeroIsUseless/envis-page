@@ -10,6 +10,7 @@ export const en: Translations = {
   },
   nav: {
     github: "GitHub",
+    docs: "Documentation",
     download: "Download"
   },
   hero: {

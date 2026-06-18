@@ -8,6 +8,7 @@ export const zh = {
   },
   nav: {
     github: "GitHub",
+    docs: "文档",
     download: "下载"
   },
   hero: {

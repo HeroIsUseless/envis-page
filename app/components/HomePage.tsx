@@ -2,6 +2,7 @@ import { LanguageSwitcher } from './LanguageSwitcher'
 import {
   ArrowRight,
   Download,
+  FileText,
   ExternalLink,
   Github,
   Layers,
@@ -21,6 +22,8 @@ interface HomePageProps {
 }
 
 export function HomePage({ locale, t }: HomePageProps) {
+  const docsHref = locale === 'zh' ? '/zh/docs/' : '/en/docs/'
+
   return (
     <div
       className="relative w-full h-full bg-white dark:bg-[#030303] text-gray-900 dark:text-white overflow-hidden flex flex-col font-sans selection:bg-blue-500/20 dark:selection:bg-white/20"
@@ -39,6 +42,13 @@ export function HomePage({ locale, t }: HomePageProps) {
         </div>
         <div className="flex items-center gap-3">
           <LanguageSwitcher locale={locale} />
+          <a
+            href={docsHref}
+            className="flex items-center gap-1.5 px-3 py-1.5 text-xs text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+          >
+            <FileText className="w-4 h-4" />
+            <span>{t.nav.docs}</span>
+          </a>
           <a
             href="https://github.com/xopenbeta/envis-app"
             target="_blank"

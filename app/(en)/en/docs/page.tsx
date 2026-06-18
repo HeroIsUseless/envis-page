@@ -82,6 +82,10 @@ export default async function EnDocsPage() {
             <h2>Introduction</h2>
             <p>Learn what Envis is, what problems it solves, and how to use it.</p>
           </a>
+          <a href="/en/docs/02_cli/" className={styles.docItem}>
+            <h2>CLI Commands</h2>
+            <p>See how to use envis use, list, refresh, and related terminal commands.</p>
+          </a>
         </div>
 
         <article className={styles.markdown}>

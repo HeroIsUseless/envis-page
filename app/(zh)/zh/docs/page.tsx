@@ -80,6 +80,10 @@ export default async function ZhDocsPage() {
             <h2>Envis 介绍</h2>
             <p>了解 Envis 是什么、解决什么问题以及如何使用。</p>
           </a>
+          <a href="/zh/docs/02_cli/" className={styles.docItem}>
+            <h2>CLI 命令</h2>
+            <p>查看 envis use、list、refresh 等命令的终端用法。</p>
+          </a>
         </div>
 
         <article className={styles.markdown}>
