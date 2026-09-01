@@ -68,8 +68,8 @@ export function ProductStory({ t }: ProductStoryProps) {
               'bg-rose-50 text-rose-600 dark:bg-rose-500/10 dark:text-rose-300',
             ]
             return (
-              <article key={item.title} className="group overflow-hidden rounded-lg border border-gray-200 bg-white p-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-gray-200/60 dark:border-white/10 dark:bg-[#0b0b0b] dark:hover:shadow-black/40">
-                <div className={`relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-md ${visualStyles[index]}`}>
+              <article key={item.title} className="feature-card group overflow-hidden rounded-lg border border-gray-200 bg-white p-2 dark:border-white/10 dark:bg-[#0b0b0b]">
+                <div className={`feature-visual relative flex aspect-4/3 items-center justify-center overflow-hidden rounded-md ${visualStyles[index]}`}>
                   <div className="absolute inset-5 rounded-full border border-current opacity-10 transition-transform duration-500 group-hover:scale-110" />
                   <div className="absolute inset-10 rounded-full border border-current opacity-15 transition-transform duration-500 group-hover:scale-125" />
                   <Icon className="relative h-12 w-12 transition-transform duration-300 group-hover:scale-110" strokeWidth={1.35} />
@@ -87,14 +87,14 @@ export function ProductStory({ t }: ProductStoryProps) {
         </div>
 
         <div className="relative mt-5 overflow-hidden rounded-lg bg-[#f1f5f9] px-4 pb-0 pt-12 sm:px-10 sm:pt-16 dark:bg-[#101214]">
-          <div className="absolute left-1/2 top-6 h-48 w-2/3 -translate-x-1/2 rounded-full bg-blue-300/25 blur-3xl dark:bg-blue-500/10" />
+          <div className="ambient-glow absolute left-1/2 top-6 h-48 w-2/3 -translate-x-1/2 rounded-full bg-blue-300/25 blur-3xl dark:bg-blue-500/10" />
           <div className="relative mx-auto mb-8 flex max-w-2xl items-center justify-center gap-3 text-center text-sm text-gray-600 dark:text-gray-300">
             <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-emerald-500 shadow-sm dark:bg-white/10">
               <Check className="h-4 w-4" />
             </span>
             {t.finalCta.eyebrow}
           </div>
-          <div className="relative mx-auto max-w-5xl translate-y-1 overflow-hidden rounded-t-lg border border-gray-200 bg-white p-1.5 shadow-[0_30px_70px_-35px_rgba(15,23,42,0.35)] sm:p-2 dark:border-white/10 dark:bg-[#191919]">
+          <div className="product-frame relative mx-auto max-w-5xl translate-y-1 overflow-hidden rounded-t-lg border border-gray-200 bg-white p-1.5 shadow-[0_30px_70px_-35px_rgba(15,23,42,0.35)] sm:p-2 dark:border-white/10 dark:bg-[#191919]">
             <Image src="/Shot.png" alt={t.showcase.items[0].alt} width={1800} height={1125} sizes="(max-width: 1024px) 100vw, 1024px" className="h-auto w-full rounded-md border border-black/5" />
           </div>
         </div>
@@ -112,7 +112,7 @@ export function ProductStory({ t }: ProductStoryProps) {
           {t.workflow.items.map((item, index) => {
             const Icon = workflowIcons[index]
             return (
-              <article key={item.title} className="group relative rounded-lg bg-gray-50 p-7 transition-colors hover:bg-blue-50 dark:bg-[#0c0c0c] dark:hover:bg-blue-500/10">
+              <article key={item.title} className="feature-card group relative rounded-lg border border-transparent bg-gray-50 p-7 hover:bg-blue-50 dark:bg-[#0c0c0c] dark:hover:bg-blue-500/10">
                 <div className="mb-10 flex items-center">
                   <Icon className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                 </div>
@@ -143,7 +143,7 @@ export function ProductStory({ t }: ProductStoryProps) {
                 <p className="mt-5 text-base leading-7 text-gray-600 dark:text-gray-400">{item.desc}</p>
               </div>
               <div className={`lg:col-span-8 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                <div className="overflow-hidden rounded-lg border border-gray-200 bg-[#f4f6f8] p-2 shadow-[0_24px_70px_-30px_rgba(15,23,42,0.35)] sm:p-3 dark:border-white/10 dark:bg-white/5">
+                <div className="product-frame overflow-hidden rounded-lg border border-gray-200 bg-[#f4f6f8] p-2 shadow-[0_24px_70px_-30px_rgba(15,23,42,0.35)] sm:p-3 dark:border-white/10 dark:bg-white/5">
                   <Image
                     src={item.image}
                     alt={item.alt}
@@ -171,7 +171,7 @@ export function ProductStory({ t }: ProductStoryProps) {
           {t.capabilities.items.map((item, index) => {
             const Icon = capabilityIcons[index]
             return (
-              <article key={item.title} className="min-h-52 rounded-lg bg-gray-50 p-6 transition-colors hover:bg-gray-100 sm:p-7 dark:bg-[#0c0c0c] dark:hover:bg-[#141414]">
+              <article key={item.title} className="feature-card min-h-52 rounded-lg border border-transparent bg-gray-50 p-6 hover:bg-gray-100 sm:p-7 dark:bg-[#0c0c0c] dark:hover:bg-[#141414]">
                 <Icon className="h-6 w-6 text-blue-600 dark:text-blue-400" strokeWidth={1.7} />
                 <h3 className="mt-10 text-base font-semibold text-gray-950 dark:text-white">{item.title}</h3>
                 <p className="mt-3 text-sm leading-6 text-gray-600 dark:text-gray-400">{item.desc}</p>
@@ -203,7 +203,7 @@ export function ProductStory({ t }: ProductStoryProps) {
                 ['Hosts', Globe2],
                 ['Custom', Settings2],
               ].map(([name, ServiceIcon]) => (
-                <div key={name as string} className="flex min-h-20 items-center gap-3 rounded-lg border border-blue-100 bg-white px-4 py-3 dark:border-white/10 dark:bg-white/5">
+                <div key={name as string} className="feature-card flex min-h-20 items-center gap-3 rounded-lg border border-blue-100 bg-white px-4 py-3 dark:border-white/10 dark:bg-white/5">
                   <ServiceIcon className="h-5 w-5 shrink-0 text-blue-600 dark:text-blue-300" />
                   <span className="text-sm font-medium">{name as string}</span>
                 </div>
@@ -219,7 +219,7 @@ export function ProductStory({ t }: ProductStoryProps) {
           {t.audience.items.map((item, index) => {
             const Icon = audienceIcons[index]
             return (
-              <article key={item.title} className="border-t-2 border-gray-950 px-1 pt-6 dark:border-white">
+              <article key={item.title} className="feature-card rounded-lg border border-gray-200 bg-white p-7 dark:border-white/10 dark:bg-[#0c0c0c]">
                 <Icon className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                 <h3 className="mt-8 text-xl font-semibold text-gray-950 dark:text-white">{item.title}</h3>
                 <p className="mt-3 text-sm leading-6 text-gray-600 dark:text-gray-400">{item.desc}</p>
@@ -234,7 +234,7 @@ export function ProductStory({ t }: ProductStoryProps) {
           <SectionHeading eyebrow={t.faq.eyebrow} title={t.faq.title} id="faq-title" icon={CircleHelp} />
           <div className="border-t border-gray-200 dark:border-white/10">
             {t.faq.items.map((item, index) => (
-              <details key={item.question} className="group border-b border-gray-200 py-1 dark:border-white/10" open={index === 0}>
+              <details key={item.question} className="group border-b border-gray-200 px-3 py-1 transition-colors hover:bg-blue-50/70 dark:border-white/10 dark:hover:bg-blue-500/5" open={index === 0}>
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5 text-left font-medium text-gray-950 marker:content-none dark:text-white">
                   {item.question}
                   <span className="text-xl font-light text-gray-400 transition-transform group-open:rotate-45">+</span>
@@ -247,8 +247,8 @@ export function ProductStory({ t }: ProductStoryProps) {
       </section>
 
       <section className="py-16 sm:py-24" aria-labelledby="download-title">
-        <div className="relative overflow-hidden rounded-lg bg-gray-100 px-6 py-14 text-center text-gray-950 sm:px-12 sm:py-20 dark:bg-[#101010] dark:text-white">
-          <Cpu className="absolute -right-10 -top-14 h-64 w-64 text-blue-600/[0.07] dark:text-white/[0.05]" strokeWidth={0.8} />
+        <div className="feature-card relative overflow-hidden rounded-lg border border-transparent bg-gray-100 px-6 py-14 text-center text-gray-950 sm:px-12 sm:py-20 dark:bg-[#101010] dark:text-white">
+          <Cpu className="ambient-glow absolute -right-10 -top-14 h-64 w-64 text-blue-600/[0.07] dark:text-white/5" strokeWidth={0.8} />
           <p className="relative text-xs font-semibold uppercase text-blue-600 dark:text-blue-400">{t.finalCta.eyebrow}</p>
           <h2 id="download-title" className="relative mx-auto mt-5 max-w-3xl text-3xl font-semibold leading-tight sm:text-5xl">
             {t.finalCta.title}

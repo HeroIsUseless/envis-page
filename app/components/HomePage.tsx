@@ -126,8 +126,8 @@ export function HomePage({ locale, t }: HomePageProps) {
               </a>
             </div>
             <div className="relative mx-auto w-full max-w-5xl pt-8">
-              <div className="absolute inset-x-[8%] bottom-[-4%] top-[16%] rounded-full bg-blue-500/20 blur-3xl dark:bg-emerald-400/10" />
-              <div className="relative overflow-hidden rounded-lg border-gray-200/80 bg-[#e9edf2] shadow-[0_35px_90px_-35px_rgba(15,23,42,0.55)] dark:border-white/10 dark:bg-white/10">
+              <div className="ambient-glow absolute inset-x-[8%] bottom-[-4%] top-[16%] rounded-full bg-blue-500/20 blur-3xl dark:bg-emerald-400/10" />
+              <div className="product-frame relative overflow-hidden rounded-lg border border-gray-200/80 bg-[#e9edf2] shadow-[0_35px_90px_-35px_rgba(15,23,42,0.55)] dark:border-white/10 dark:bg-white/10">
                 <Image
                   src="/Shot.png"
                   alt={

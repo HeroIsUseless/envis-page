@@ -27,3 +27,111 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+@keyframes ambient-pulse {
+  0%, 100% { opacity: 0.38; transform: scale(0.94); }
+  50% { opacity: 0.68; transform: scale(1.06); }
+}
+
+.feature-card {
+  position: relative;
+  isolation: isolate;
+  transition: transform 360ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 360ms ease,
+    box-shadow 360ms ease,
+    background-color 360ms ease;
+}
+
+.feature-card::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgb(255 255 255 / 0.9), transparent 42%, rgb(59 130 246 / 0.08));
+  opacity: 0;
+  content: '';
+  transition: opacity 360ms ease;
+}
+
+.feature-card::after {
+  position: absolute;
+  right: 12%;
+  bottom: -18%;
+  z-index: -2;
+  width: 58%;
+  height: 34%;
+  border-radius: 999px;
+  background: rgb(59 130 246 / 0.3);
+  filter: blur(28px);
+  opacity: 0;
+  content: '';
+  transition: opacity 360ms ease, transform 360ms ease;
+}
+
+.feature-card:hover {
+  z-index: 2;
+  border-color: rgb(147 197 253 / 0.75);
+  box-shadow: 0 24px 60px -28px rgb(37 99 235 / 0.4), 0 10px 24px -16px rgb(15 23 42 / 0.22);
+}
+
+.feature-card:hover::before,
+.feature-card:hover::after {
+  opacity: 1;
+}
+
+.feature-card:hover::after {
+  transform: scale(1.08);
+}
+
+.feature-visual {
+  transform: translateZ(0);
+  transition: transform 500ms cubic-bezier(0.2, 0.8, 0.2, 1), filter 500ms ease;
+}
+
+.feature-card:hover .feature-visual {
+  transform: scale(1.035);
+  filter: saturate(1.08);
+}
+
+.ambient-glow {
+  animation: ambient-pulse 5s ease-in-out infinite;
+}
+
+.product-frame {
+  transition: transform 500ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 500ms ease, border-color 500ms ease;
+}
+
+.product-frame:hover {
+  transform: scale(1.008);
+  border-color: rgb(96 165 250 / 0.65);
+  box-shadow: 0 35px 90px -38px rgb(37 99 235 / 0.55);
+}
+
+@media (prefers-color-scheme: dark) {
+  .feature-card::before {
+    background: linear-gradient(135deg, rgb(255 255 255 / 0.07), transparent 45%, rgb(59 130 246 / 0.12));
+  }
+
+  .feature-card:hover {
+    border-color: rgb(96 165 250 / 0.45);
+    box-shadow: 0 28px 70px -32px rgb(37 99 235 / 0.55), 0 12px 28px -20px rgb(0 0 0 / 0.9);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-glow {
+    animation: none;
+  }
+
+  .feature-card,
+  .feature-visual,
+  .product-frame {
+    transition-duration: 0.01ms;
+  }
+
+  .feature-card:hover,
+  .feature-card:hover .feature-visual,
+  .product-frame:hover {
+    transform: none;
+  }
+}
