@@ -25,6 +25,17 @@ export const zh = {
     openSource: "开源",
     license: "MIT 协议"
   },
+  why: {
+    eyebrow: "为什么选择 Envis",
+    title: "复杂留在工具里，开发回到代码中",
+    description: "Envis 把安装、隔离、切换与共享串成一个完整工作流。即使同时维护多套技术栈，环境依然清晰、可控、随时可复现。",
+    items: [
+      { title: "装得快", desc: "服务、版本与依赖按需安装，不再翻文档拼命令。", metric: "一键", label: "完成安装" },
+      { title: "切得稳", desc: "每个项目独立保存版本组合，旧项目与新技术栈互不干扰。", metric: "0", label: "全局污染" },
+      { title: "看得清", desc: "运行状态、系统资源和服务配置集中呈现，问题更容易定位。", metric: "10+", label: "服务统一管理" },
+      { title: "带得走", desc: "导出完整环境配置，在新设备或团队成员电脑上快速复现。", metric: "1 份", label: "配置跨设备" }
+    ]
+  },
   features: {
     title: "核心特性",
     oneClickInstall: {

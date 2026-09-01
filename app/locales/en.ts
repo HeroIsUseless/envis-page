@@ -27,6 +27,17 @@ export const en: Translations = {
     openSource: "Open Source",
     license: "MIT License"
   },
+  why: {
+    eyebrow: "Why Envis",
+    title: "Keep the complexity in the tool, not in your day",
+    description: "Envis connects installation, isolation, switching, and sharing in one workflow. Even across multiple stacks, every environment stays clear, controlled, and reproducible.",
+    items: [
+      { title: "Install faster", desc: "Get services, versions, and dependencies on demand without piecing together commands.", metric: "1 click", label: "to install" },
+      { title: "Switch safely", desc: "Save a version set per project so legacy work and modern stacks never collide.", metric: "0", label: "global conflicts" },
+      { title: "See everything", desc: "Bring runtime status, system resources, and service settings into one view.", metric: "10+", label: "services managed" },
+      { title: "Take it anywhere", desc: "Export a complete setup and reproduce it quickly on another machine.", metric: "1 file", label: "across devices" }
+    ]
+  },
   features: {
     title: "Core Features",
     oneClickInstall: {

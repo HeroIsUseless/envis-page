@@ -22,22 +22,24 @@ export function HomePage({ locale, t }: HomePageProps) {
 
   return (
     <div
-      className="relative flex min-h-screen w-full flex-col overflow-x-hidden bg-white font-sans text-gray-900 selection:bg-blue-500/20 dark:bg-[#030303] dark:text-white dark:selection:bg-white/20"
+      className="relative flex min-h-screen w-full flex-col overflow-x-hidden bg-white font-sans text-gray-900 selection:bg-blue-500/20 dark:bg-[#050505] dark:text-white dark:selection:bg-white/20"
       role="main"
     >
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-black/[0.02] dark:bg-white/[0.03] blur-[120px] rounded-full"></div>
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+        <div className="absolute left-1/2 top-[-12%] h-125 w-250 -translate-x-1/2 rounded-full bg-blue-100/70 blur-[120px] dark:bg-blue-500/5"></div>
       </div>
 
-      <nav className="flex justify-between items-center px-4 py-2 sm:px-6 sm:py-3 z-50 border-b border-gray-200 dark:border-white/5 bg-white/50 dark:bg-[#030303]/50 backdrop-blur-xl sticky top-0" aria-label={locale === 'zh' ? '主导航' : 'Main navigation'}>
+      <nav className="sticky top-0 z-50 flex items-center justify-between border-b border-gray-200/70 bg-white/80 px-4 py-2 backdrop-blur-xl sm:px-6 sm:py-3 dark:border-white/5 dark:bg-[#050505]/80" aria-label={locale === 'zh' ? '主导航' : 'Main navigation'}>
         <div className="flex items-center gap-2">
           <Image src="/app-icon.png" alt="Envis Logo" width={28} height={28} className="h-7 w-7 rounded-lg" />
           <span className="font-semibold text-gray-900 dark:text-white">Envis</span>
-          <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20">v0.1.0</span>
+          <span className="hidden text-xs px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20 sm:inline-flex">v0.1.0</span>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-1 sm:gap-3">
           <div className="hidden items-center gap-1 lg:flex">
+            <a href="#why" className="px-3 py-1.5 text-xs text-gray-600 transition-colors hover:text-gray-950 dark:text-gray-400 dark:hover:text-white">
+              {t.why.eyebrow}
+            </a>
             <a href="#workflow" className="px-3 py-1.5 text-xs text-gray-600 transition-colors hover:text-gray-950 dark:text-gray-400 dark:hover:text-white">
               {t.workflow.eyebrow}
             </a>
@@ -51,34 +53,37 @@ export function HomePage({ locale, t }: HomePageProps) {
           <LanguageSwitcher locale={locale} />
           <a
             href={docsHref}
-            className="flex items-center gap-1.5 px-3 py-1.5 text-xs text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+            className="flex items-center gap-1.5 p-1.5 text-xs text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors sm:px-3"
+            aria-label={t.nav.docs}
           >
             <FileText className="w-4 h-4" />
-            <span>{t.nav.docs}</span>
+            <span className="hidden sm:inline">{t.nav.docs}</span>
           </a>
           <a
             href="https://github.com/xopenbeta/envis-app"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-3 py-1.5 text-xs text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+            className="flex items-center gap-1.5 p-1.5 text-xs text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors sm:px-3"
+            aria-label={t.nav.github}
           >
             <Github className="w-4 h-4" />
-            <span>{t.nav.github}</span>
+            <span className="hidden sm:inline">{t.nav.github}</span>
           </a>
           <a
             href="/Envis_0.1.0_aarch64.dmg"
             download
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-500 hover:bg-blue-600 text-white text-xs font-medium transition-colors"
+            className="flex items-center gap-1.5 p-2 rounded-lg bg-blue-500 hover:bg-blue-600 text-white text-xs font-medium transition-colors sm:px-3 sm:py-1.5"
+            aria-label={t.nav.download}
           >
             <Download className="w-4 h-4" />
-            <span>{t.nav.download}</span>
+            <span className="hidden sm:inline">{t.nav.download}</span>
           </a>
         </div>
       </nav>
 
       <main className="relative z-10 flex flex-1 flex-col items-center">
-        <div className="flex w-full max-w-7xl flex-col gap-12 px-5 sm:px-8">
-          <section className="text-center space-y-8 mt-20" aria-labelledby="hero-title">
+        <div className="flex w-full max-w-7xl flex-col px-5 sm:px-8">
+          <section className="mt-20 space-y-8 text-center sm:mt-28" aria-labelledby="hero-title">
             <div className="w-full flex justify-center">
               <a
                 href="https://github.com/xopenbeta/envis-app"
@@ -92,7 +97,7 @@ export function HomePage({ locale, t }: HomePageProps) {
               </a>
             </div>
             <div className="space-y-6">
-              <h1 id="hero-title" className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 dark:text-white">
+              <h1 id="hero-title" className="mx-auto max-w-5xl text-3xl font-semibold leading-[1.08] text-gray-950 sm:text-5xl md:text-6xl lg:text-7xl dark:text-white">
                 {t.hero.title}
               </h1>
               <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
@@ -120,20 +125,23 @@ export function HomePage({ locale, t }: HomePageProps) {
                 <ExternalLink className="w-4 h-4 opacity-50" />
               </a>
             </div>
-            <div className="w-full flex justify-center pt-8">
-              <Image
-                src="/Shot.png"
-                alt={
-                  locale === 'zh'
-                    ? 'Envis 环境管理界面截图'
-                    : 'Screenshot of Envis environment management interface'
-                }
-                width={1800}
-                height={1125}
-                priority
-                sizes="(max-width: 1024px) 100vw, 896px"
-                className="h-auto w-full max-w-4xl rounded-lg border border-gray-200 shadow-2xl dark:border-white/10"
-              />
+            <div className="relative mx-auto w-full max-w-5xl pt-8">
+              <div className="absolute inset-x-[8%] bottom-[-4%] top-[16%] rounded-full bg-blue-500/20 blur-3xl dark:bg-emerald-400/10" />
+              <div className="relative overflow-hidden rounded-lg border-gray-200/80 bg-[#e9edf2] shadow-[0_35px_90px_-35px_rgba(15,23,42,0.55)] dark:border-white/10 dark:bg-white/10">
+                <Image
+                  src="/Shot.png"
+                  alt={
+                    locale === 'zh'
+                      ? 'Envis 环境管理界面截图'
+                      : 'Screenshot of Envis environment management interface'
+                  }
+                  width={1800}
+                  height={1125}
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 1024px"
+                  className="h-auto w-full rounded-md border border-black/10"
+                />
+              </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 pb-6">
               <div className="text-center">
