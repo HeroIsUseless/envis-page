@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { LanguageSwitcher } from './LanguageSwitcher'
 import { ProductStory } from './ProductStory'
+import { ThemeToggle } from './ThemeToggle'
 import {
   ArrowRight,
   Download,
@@ -51,6 +52,7 @@ export function HomePage({ locale, t }: HomePageProps) {
             </a>
           </div>
           <LanguageSwitcher locale={locale} />
+          <ThemeToggle locale={locale} />
           <a
             href={docsHref}
             className="flex items-center gap-1.5 p-1.5 text-xs text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors sm:px-3"
