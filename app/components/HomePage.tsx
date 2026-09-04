@@ -8,6 +8,7 @@ import {
   FileText,
   ExternalLink,
   Github,
+  Newspaper,
   Star,
 } from 'lucide-react'
 import type { Locale } from '../lib/i18n'
@@ -20,6 +21,7 @@ interface HomePageProps {
 
 export function HomePage({ locale, t }: HomePageProps) {
   const docsHref = locale === 'zh' ? '/zh/docs/' : '/en/docs/'
+  const blogHref = locale === 'zh' ? '/zh/blog/' : '/en/blog/'
 
   return (
     <div
@@ -53,6 +55,14 @@ export function HomePage({ locale, t }: HomePageProps) {
           </div>
           <LanguageSwitcher locale={locale} />
           <ThemeToggle locale={locale} />
+          <a
+            href={blogHref}
+            className="flex items-center gap-1.5 p-1.5 text-xs text-gray-600 transition-colors hover:text-gray-900 sm:px-3 dark:text-gray-400 dark:hover:text-white"
+            aria-label={t.nav.blog}
+          >
+            <Newspaper className="h-4 w-4" />
+            <span className="hidden sm:inline">{t.nav.blog}</span>
+          </a>
           <a
             href={docsHref}
             className="flex items-center gap-1.5 p-1.5 text-xs text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors sm:px-3"

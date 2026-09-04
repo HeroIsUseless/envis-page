@@ -11,6 +11,7 @@ export const en: Translations = {
   nav: {
     github: "GitHub",
     docs: "Documentation",
+    blog: "Blog",
     download: "Download"
   },
   hero: {

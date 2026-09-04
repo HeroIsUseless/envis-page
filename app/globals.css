@@ -122,6 +122,46 @@ body {
   box-shadow: 0 35px 90px -38px rgb(37 99 235 / 0.55);
 }
 
+.prose-area h2 {
+  margin-bottom: 1rem;
+  color: #111827;
+  font-size: 1.75rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.prose-area p + p {
+  margin-top: 1rem;
+}
+
+.prose-area ul {
+  margin: 1.25rem 0;
+  padding-left: 1.4rem;
+  list-style: disc;
+}
+
+.prose-area li + li {
+  margin-top: 0.45rem;
+}
+
+.prose-area a {
+  color: #2563eb;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prose-area code {
+  overflow-wrap: anywhere;
+}
+
+.dark .prose-area h2 {
+  color: #fff;
+}
+
+.dark .prose-area a {
+  color: #60a5fa;
+}
+
 .dark .feature-card::before {
   background:
     radial-gradient(280px circle at var(--spotlight-x) var(--spotlight-y), rgb(147 197 253 / 0.32), rgb(59 130 246 / 0.12) 34%, transparent 70%);

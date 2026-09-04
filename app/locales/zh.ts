@@ -9,6 +9,7 @@ export const zh = {
   nav: {
     github: "GitHub",
     docs: "文档",
+    blog: "博客",
     download: "下载"
   },
   hero: {
