@@ -96,21 +96,21 @@ export const en: Translations = {
         number: "01",
         title: "Create an isolated project environment",
         desc: "Name a dedicated workspace with its own services and versions. Keep the system clean and other projects untouched.",
-        image: "/docs/01_main/2.png",
+        image: "/docs/en/showcase-en-1.png",
         alt: "Creating a new isolated development environment in Envis"
       },
       {
         number: "02",
         title: "Choose the services and versions you need",
         desc: "Combine languages, databases, and servers around the project. Reuse installed versions or download another when needed.",
-        image: "/docs/01_main/3.png",
+        image: "/docs/en/showcase-en-2.png",
         alt: "Selecting a Node.js service version in Envis"
       },
       {
         number: "03",
         title: "Keep full control of the details",
         desc: "Configure registries, install prefixes, and runtime settings per service. Envis removes repetition without hiding the controls developers need.",
-        image: "/docs/01_main/4.png",
+        image: "/docs/en/showcase-en-3.png",
         alt: "Configuring Node.js environment settings in Envis"
       }
     ]

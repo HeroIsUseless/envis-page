@@ -170,13 +170,13 @@ export function ProductStory({ t }: ProductStoryProps) {
                 <p className="mt-5 text-base leading-7 text-gray-600 dark:text-gray-400">{item.desc}</p>
               </div>
               <div className={`lg:col-span-8 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                <div className="product-frame overflow-hidden rounded-lg shadow-[0_24px_70px_-30px_rgba(15,23,42,0.35)]">
+                <div className="product-frame mx-auto max-w-200 overflow-hidden rounded-lg shadow-[0_24px_70px_-30px_rgba(15,23,42,0.35)]">
                   <Image
                     src={item.image}
                     alt={item.alt}
                     width={1600}
                     height={1200}
-                    sizes="(max-width: 1024px) 100vw, 66vw"
+                    sizes="(max-width: 800px) 100vw, 800px"
                     className="h-auto w-full"
                   />
                 </div>

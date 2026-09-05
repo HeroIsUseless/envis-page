@@ -147,7 +147,7 @@ export function HomePage({ locale, t }: HomePageProps) {
               </div>
               <div className="product-frame relative mx-auto max-w-200 shadow-[0_30px_70px_-35px_rgba(15,23,42,0.35)]">
                 <Image
-                  src="/Shot.png"
+                  src={locale === 'zh' ? '/Shot.png' : '/docs/en/hero-en.png'}
                   alt={
                     locale === 'zh'
                       ? 'Envis 环境管理界面截图'
