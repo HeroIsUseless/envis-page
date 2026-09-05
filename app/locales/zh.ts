@@ -14,7 +14,7 @@ export const zh = {
   },
   hero: {
     badge: "如果喜欢 Envis，去 GitHub 点个 Star",
-    title: "你是否在安装开发环境的时候感觉到痛苦？",
+    title: "你是否在安装开发环境的时候\n感觉到痛苦？",
     subtitle: "Envis：一款全平台环境管理软件，让开发环境安装/切换像呼吸一样自然",
     downloadBtn: "立即下载",
     sourceBtn: "查看源码"

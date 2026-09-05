@@ -4,6 +4,7 @@ import { ProductStory } from './ProductStory'
 import { ThemeToggle } from './ThemeToggle'
 import {
   ArrowRight,
+  Check,
   Download,
   FileText,
   ExternalLink,
@@ -36,7 +37,6 @@ export function HomePage({ locale, t }: HomePageProps) {
         <div className="flex items-center gap-2">
           <Image src="/app-icon.png" alt="Envis Logo" width={28} height={28} className="h-7 w-7 rounded-lg" />
           <span className="font-semibold text-gray-900 dark:text-white">Envis</span>
-          <span className="hidden text-xs px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20 sm:inline-flex">v0.1.0</span>
         </div>
         <div className="flex items-center gap-1 sm:gap-3">
           <div className="hidden items-center gap-1 lg:flex">
@@ -109,7 +109,7 @@ export function HomePage({ locale, t }: HomePageProps) {
               </a>
             </div>
             <div className="space-y-6">
-              <h1 id="hero-title" className="mx-auto max-w-5xl text-3xl font-semibold leading-[1.08] text-gray-950 sm:text-5xl md:text-6xl lg:text-7xl dark:text-white">
+              <h1 id="hero-title" className="mx-auto max-w-5xl whitespace-pre-line text-3xl font-semibold leading-[1.08] text-gray-950 sm:text-5xl md:text-6xl lg:text-7xl dark:text-white">
                 {t.hero.title}
               </h1>
               <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
@@ -137,9 +137,15 @@ export function HomePage({ locale, t }: HomePageProps) {
                 <ExternalLink className="w-4 h-4 opacity-50" />
               </a>
             </div>
-            <div className="relative mx-auto w-full max-w-5xl pt-8">
-              <div className="ambient-glow absolute inset-x-[8%] bottom-[-4%] top-[16%] rounded-full bg-blue-500/20 blur-3xl dark:bg-emerald-400/10" />
-              <div className="product-frame relative overflow-hidden rounded-lg border border-gray-200/80 bg-[#e9edf2] shadow-[0_35px_90px_-35px_rgba(15,23,42,0.55)] dark:border-white/10 dark:bg-white/10">
+            <div className="relative mt-8 w-full overflow-hidden rounded-lg bg-[#f1f5f9] px-4 pb-0 pt-12 sm:px-10 sm:pt-16 dark:bg-[#101214]">
+              <div className="ambient-glow absolute left-1/2 top-6 h-48 w-2/3 -translate-x-1/2 rounded-full bg-blue-300/25 blur-3xl dark:bg-blue-500/10" />
+              <div className="relative mx-auto mb-8 flex max-w-2xl items-center justify-center gap-3 text-center text-sm text-gray-600 dark:text-gray-300">
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-emerald-500 shadow-sm dark:bg-white/10">
+                  <Check className="h-4 w-4" />
+                </span>
+                {t.finalCta.eyebrow}
+              </div>
+              <div className="product-frame relative mx-auto max-w-200 shadow-[0_30px_70px_-35px_rgba(15,23,42,0.35)]">
                 <Image
                   src="/Shot.png"
                   alt={
@@ -150,8 +156,8 @@ export function HomePage({ locale, t }: HomePageProps) {
                   width={1800}
                   height={1125}
                   priority
-                  sizes="(max-width: 1024px) 100vw, 1024px"
-                  className="h-auto w-full rounded-md border border-black/10"
+                  sizes="(max-width: 800px) 100vw, 800px"
+                  className="h-auto w-full"
                 />
               </div>
             </div>

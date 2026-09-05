@@ -7,33 +7,28 @@ import {
   Boxes,
   Braces,
   CircleHelp,
-  Check,
   CloudDownload,
   Code2,
   Cpu,
-  Database,
   Download,
   FolderSync,
   Gauge,
   Github,
   Globe2,
-  HardDrive,
   Layers3,
   LayoutDashboard,
   LockKeyhole,
   MonitorCheck,
-  Network,
   PackageCheck,
   Play,
   Rocket,
-  Server,
-  Settings2,
   Sparkles,
   Shuffle,
   TerminalSquare,
   Users,
 } from 'lucide-react'
 import type { Translations } from '../locales/zh'
+import OrbitImages from './OrbitImages'
 
 interface ProductStoryProps {
   t: Translations
@@ -117,19 +112,6 @@ export function ProductStory({ t }: ProductStoryProps) {
               </article>
             )
           })}
-        </div>
-
-        <div className="relative mt-5 overflow-hidden rounded-lg bg-[#f1f5f9] px-4 pb-0 pt-12 sm:px-10 sm:pt-16 dark:bg-[#101214]">
-          <div className="ambient-glow absolute left-1/2 top-6 h-48 w-2/3 -translate-x-1/2 rounded-full bg-blue-300/25 blur-3xl dark:bg-blue-500/10" />
-          <div className="relative mx-auto mb-8 flex max-w-2xl items-center justify-center gap-3 text-center text-sm text-gray-600 dark:text-gray-300">
-            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-emerald-500 shadow-sm dark:bg-white/10">
-              <Check className="h-4 w-4" />
-            </span>
-            {t.finalCta.eyebrow}
-          </div>
-          <div className="product-frame relative mx-auto max-w-5xl translate-y-1 overflow-hidden rounded-t-lg border border-gray-200 bg-white p-1.5 shadow-[0_30px_70px_-35px_rgba(15,23,42,0.35)] sm:p-2 dark:border-white/10 dark:bg-[#191919]">
-            <Image src="/Shot.png" alt={t.showcase.items[0].alt} width={1800} height={1125} sizes="(max-width: 1024px) 100vw, 1024px" className="h-auto w-full rounded-md border border-black/5" />
-          </div>
         </div>
       </section>
 
@@ -215,8 +197,8 @@ export function ProductStory({ t }: ProductStoryProps) {
       </section>
 
       <section className="py-16 sm:py-24" aria-labelledby="services-title">
-        <div className="overflow-hidden rounded-lg bg-blue-50 px-6 py-12 text-gray-950 sm:px-10 lg:px-14 dark:bg-[#0b1625] dark:text-white">
-          <div className="grid items-center gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+        <div className="overflow-hidden rounded-lg bg-blue-50 px-4 py-8 text-gray-950 sm:px-8 sm:py-10 lg:px-12 dark:bg-[#0b1625] dark:text-white">
+          <div className="grid items-center gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-12">
             <div>
               <p className="font-mono text-xs font-semibold uppercase text-blue-600 dark:text-blue-300">10+ Services</p>
               <h2 id="services-title" className="mt-4 text-3xl font-semibold leading-tight sm:text-4xl">
@@ -224,23 +206,42 @@ export function ProductStory({ t }: ProductStoryProps) {
               </h2>
               <p className="mt-5 max-w-lg text-base leading-7 text-gray-600 dark:text-gray-300">{t.features.oneClickInstall.desc}</p>
             </div>
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-              {[
-                ['Node.js', Code2],
-                ['Python', TerminalSquare],
-                ['Java', Braces],
-                ['MongoDB', Database],
-                ['PostgreSQL', HardDrive],
-                ['Nginx', Server],
-                ['Redis', Network],
-                ['Hosts', Globe2],
-                ['Custom', Settings2],
-              ].map(([name, ServiceIcon]) => (
-                <div key={name as string} onPointerMove={handleCardPointerMove} onPointerLeave={handleCardPointerLeave} className="feature-card flex min-h-20 items-center gap-3 rounded-lg border border-blue-100 bg-white px-4 py-3 dark:border-white/10 dark:bg-white/5">
-                  <ServiceIcon className="h-5 w-5 shrink-0 text-blue-600 dark:text-blue-300" />
-                  <span className="text-sm font-medium">{name as string}</span>
-                </div>
-              ))}
+            <div className="relative h-[min(19rem,34vw)] w-full overflow-hidden">
+              <div className="absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2">
+                <OrbitImages
+                  images={[
+                    '/services/nodejs.svg',
+                    '/services/python.svg',
+                    '/services/java.svg',
+                    '/services/mongodb.svg',
+                    '/services/postgresql.svg',
+                    '/services/nginx.svg',
+                    '/services/redis.svg',
+                  ]}
+                  altPrefix="Service"
+                  shape="ellipse"
+                  radiusX={440}
+                  radiusY={150}
+                  rotation={-8}
+                  duration={30}
+                  itemSize={120}
+                  responsive
+                  showPath
+                  pathColor="rgba(96, 165, 250, 0.28)"
+                  pathWidth={1.5}
+                  centerContent={
+                    <div className="hidden items-center gap-2.5 rounded-full border border-blue-100 bg-white/80 px-5 py-2.5 shadow-xl shadow-blue-900/10 backdrop-blur sm:flex dark:border-white/10 dark:bg-white/10">
+                      <Sparkles className="h-4.5 w-4.5 text-blue-600 dark:text-blue-300" />
+                      <span className="text-sm font-semibold text-gray-900 dark:text-white">10+ Services</span>
+                    </div>
+                  }
+                />
+              </div>
+              <ul className="sr-only">
+                {['Node.js', 'Python', 'Java', 'MongoDB', 'PostgreSQL', 'Nginx', 'Redis', 'Hosts', 'Custom'].map((name) => (
+                  <li key={name}>{name}</li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
