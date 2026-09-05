@@ -97,7 +97,7 @@ export default async function OgImage() {
               color: '#10B981',
             }}
           >
-            v0.1.0 • 开源 • MIT
+            v0.1.0 • 开源 • GPL-3.0
           </div>
         </div>
       </div>

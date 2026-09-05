@@ -41,7 +41,7 @@ export function HomePage({ locale, t }: HomePageProps) {
         <div className="flex items-center gap-1 sm:gap-3">
           <div className="hidden items-center gap-1 lg:flex">
             <a href="#why" className="px-3 py-1.5 text-xs text-gray-600 transition-colors hover:text-gray-950 dark:text-gray-400 dark:hover:text-white">
-              {t.why.eyebrow}
+              {t.why.title}
             </a>
             <a href="#workflow" className="px-3 py-1.5 text-xs text-gray-600 transition-colors hover:text-gray-950 dark:text-gray-400 dark:hover:text-white">
               {t.workflow.eyebrow}

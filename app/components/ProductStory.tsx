@@ -29,6 +29,8 @@ import {
 } from 'lucide-react'
 import type { Translations } from '../locales/zh'
 import OrbitImages from './OrbitImages'
+import GlareHover from './GlareHover'
+import GradientText from './GradientText'
 
 interface ProductStoryProps {
   t: Translations
@@ -74,15 +76,15 @@ export function ProductStory({ t }: ProductStoryProps) {
     <>
       <section id="why" className="scroll-mt-24 py-16 sm:py-24" aria-labelledby="why-title">
         <div className="mx-auto max-w-3xl text-center">
-          <div className="flex items-center justify-center gap-3 text-lg font-bold text-blue-600 sm:text-xl dark:text-blue-400">
-            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-50 dark:bg-blue-500/10">
-              <Sparkles className="h-5 w-5" strokeWidth={2} />
-            </span>
-            <span>{t.why.eyebrow}</span>
-          </div>
-          <h2 id="why-title" className="mt-5 text-3xl font-semibold leading-tight text-gray-950 sm:text-5xl lg:text-6xl dark:text-white">
+          <GradientText
+            as="h2"
+            id="why-title"
+            className="text-3xl font-semibold leading-tight sm:text-5xl lg:text-6xl"
+            colors={['#40ffaa', '#4079ff', '#40ffaa', '#4079ff', '#40ffaa']}
+            animationSpeed={3}
+          >
             {t.why.title}
-          </h2>
+          </GradientText>
           <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-gray-600 sm:text-lg dark:text-gray-400">{t.why.description}</p>
         </div>
 
@@ -96,19 +98,34 @@ export function ProductStory({ t }: ProductStoryProps) {
               'bg-rose-50 text-rose-600 dark:bg-rose-500/10 dark:text-rose-300',
             ]
             return (
-              <article key={item.title} onPointerMove={handleCardPointerMove} onPointerLeave={handleCardPointerLeave} className="feature-card group overflow-hidden rounded-lg border border-gray-200 bg-white p-2 dark:border-white/10 dark:bg-[#0b0b0b]">
-                <div className={`feature-visual relative flex aspect-4/3 items-center justify-center overflow-hidden rounded-md ${visualStyles[index]}`}>
-                  <div className="absolute inset-5 rounded-full border border-current opacity-10 transition-transform duration-500 group-hover:scale-110" />
-                  <div className="absolute inset-10 rounded-full border border-current opacity-15 transition-transform duration-500 group-hover:scale-125" />
-                  <Icon className="relative h-12 w-12 transition-transform duration-300 group-hover:scale-110" strokeWidth={1.35} />
-                </div>
-                <div className="px-3 pb-4 pt-5">
-                  <div className="flex items-center justify-between gap-3">
-                    <h3 className="text-lg font-semibold text-gray-950 dark:text-white">{item.title}</h3>
-                    <ArrowRight className="h-4 w-4 text-gray-400 transition-transform group-hover:translate-x-1" />
+              <article key={item.title}>
+                <GlareHover
+                  width="100%"
+                  height="100%"
+                  background="var(--glare-card-bg)"
+                  borderRadius="8px"
+                  borderColor="transparent"
+                  glareColor="#93c5fd"
+                  glareOpacity={0.22}
+                  glareAngle={-45}
+                  glareSize={250}
+                  transitionDuration={800}
+                  className="p-2"
+                  style={{ display: 'block', placeItems: 'normal' }}
+                >
+                  <div className={`relative flex aspect-4/3 items-center justify-center overflow-hidden rounded-md ${visualStyles[index]}`}>
+                    <div className="absolute inset-5 rounded-full border border-current opacity-10" />
+                    <div className="absolute inset-10 rounded-full border border-current opacity-15" />
+                    <Icon className="relative h-12 w-12" strokeWidth={1.35} />
                   </div>
-                  <p className="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-400">{item.desc}</p>
-                </div>
+                  <div className="relative px-3 pb-4 pt-5">
+                    <div className="flex items-center justify-between gap-3">
+                      <h3 className="text-lg font-semibold text-gray-950 dark:text-white">{item.title}</h3>
+                      <ArrowRight className="h-4 w-4 text-gray-400" />
+                    </div>
+                    <p className="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-400">{item.desc}</p>
+                  </div>
+                </GlareHover>
               </article>
             )
           })}
@@ -281,7 +298,20 @@ export function ProductStory({ t }: ProductStoryProps) {
       </section>
 
       <section className="py-16 sm:py-24" aria-labelledby="download-title">
-        <div onPointerMove={handleCardPointerMove} onPointerLeave={handleCardPointerLeave} className="feature-card relative overflow-hidden rounded-lg border border-transparent bg-gray-100 px-6 py-14 text-center text-gray-950 sm:px-12 sm:py-20 dark:bg-[#101010] dark:text-white">
+        <GlareHover
+          width="100%"
+          height="100%"
+          background="var(--glare-card-bg)"
+          borderRadius="8px"
+          borderColor="transparent"
+          glareColor="#93c5fd"
+          glareOpacity={0.22}
+          glareAngle={-45}
+          glareSize={250}
+          transitionDuration={800}
+          className="px-6 py-14 text-center text-gray-950 sm:px-12 sm:py-20 dark:text-white"
+          style={{ display: 'block', placeItems: 'normal' }}
+        >
           <Cpu className="ambient-glow absolute -right-10 -top-14 h-64 w-64 text-blue-600/[0.07] dark:text-white/5" strokeWidth={0.8} />
           <p className="relative text-xs font-semibold uppercase text-blue-600 dark:text-blue-400">{t.finalCta.eyebrow}</p>
           <h2 id="download-title" className="relative mx-auto mt-5 max-w-3xl text-3xl font-semibold leading-tight sm:text-5xl">
@@ -298,7 +328,7 @@ export function ProductStory({ t }: ProductStoryProps) {
               {t.finalCta.release}
             </a>
           </div>
-        </div>
+        </GlareHover>
       </section>
     </>
   )

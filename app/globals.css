@@ -98,16 +98,6 @@ body {
   transform: scale(1.08);
 }
 
-.feature-visual {
-  transform: translateZ(0);
-  transition: transform 500ms cubic-bezier(0.2, 0.8, 0.2, 1), filter 500ms ease;
-}
-
-.feature-card:hover .feature-visual {
-  transform: translateZ(24px) scale(1.025);
-  filter: saturate(1.08);
-}
-
 .ambient-glow {
   animation: ambient-pulse 5s ease-in-out infinite;
 }
@@ -229,19 +219,138 @@ body {
   filter: drop-shadow(0 6px 10px rgb(15 23 42 / 0.18));
 }
 
+/* GlareHover */
+:root {
+  --glare-card-bg: #f3f4f6;
+}
+
+.dark {
+  --glare-card-bg: #101010;
+}
+
+.glare-hover {
+  width: var(--gh-width);
+  height: var(--gh-height);
+  background: var(--gh-bg);
+  border-radius: var(--gh-br);
+  border: 1px solid var(--gh-border);
+  overflow: hidden;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.glare-hover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    var(--gh-angle),
+    hsla(0, 0%, 0%, 0) 60%,
+    var(--gh-rgba) 70%,
+    hsla(0, 0%, 0%, 0),
+    hsla(0, 0%, 0%, 0) 100%
+  );
+  transition: var(--gh-duration) ease;
+  background-size:
+    var(--gh-size) var(--gh-size),
+    100% 100%;
+  background-repeat: no-repeat;
+  background-position:
+    -100% -100%,
+    0 0;
+}
+
+.glare-hover:hover {
+  cursor: pointer;
+}
+
+.glare-hover:hover::before {
+  background-position:
+    100% 100%,
+    0 0;
+}
+
+.glare-hover--play-once::before {
+  transition: none;
+}
+
+.glare-hover--play-once:hover::before {
+  transition: var(--gh-duration) ease;
+  background-position:
+    100% 100%,
+    0 0;
+}
+
+/* GradientText */
+.animated-gradient-text {
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  max-width: fit-content;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1.25rem;
+  backdrop-filter: blur(10px);
+  transition: box-shadow 0.5s ease-out;
+  overflow: hidden;
+}
+
+.animated-gradient-text.with-border {
+  padding: 0.35rem 0.75rem;
+}
+
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.gradient-overlay::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: inherit;
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #120F17;
+  z-index: -1;
+}
+
+.text-content {
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .ambient-glow {
     animation: none;
   }
 
+  .glare-hover::before {
+    transition: none;
+  }
+
   .feature-card,
-  .feature-visual,
   .product-frame {
     transition-duration: 0.01ms;
   }
 
   .feature-card:hover,
-  .feature-card:hover .feature-visual,
   .product-frame:hover {
     transform: none;
   }

@@ -26,11 +26,10 @@ export const en: Translations = {
     crossPlatform: "Cross-platform",
     platformSupport: "All Platforms",
     openSource: "Open Source",
-    license: "MIT License"
+    license: "GPL-3.0 License"
   },
   why: {
-    eyebrow: "Why Envis",
-    title: "Keep the complexity in the tool, not in your day",
+    title: "Why Envis",
     description: "Envis connects installation, isolation, switching, and sharing in one workflow. Even across multiple stacks, every environment stays clear, controlled, and reproducible.",
     items: [
       { title: "Install faster", desc: "Get services, versions, and dependencies on demand without piecing together commands.", metric: "1 click", label: "to install" },
@@ -155,7 +154,7 @@ export const en: Translations = {
     eyebrow: "FAQ",
     title: "A few things to know before you start",
     items: [
-      { question: "Is Envis free?", answer: "Yes. Envis is an open-source project released under the MIT License and is free to download and use." },
+      { question: "Is Envis free?", answer: "Yes. Envis is an open-source project released under the GPL-3.0 License and is free to download and use." },
       { question: "Which operating systems are supported?", answer: "Envis is built for macOS, Windows, and Linux. This page currently offers the macOS Apple Silicon build; follow GitHub Releases for other platforms." },
       { question: "Will it modify my global environment?", answer: "Envis is designed to isolate services and versions between projects, minimizing changes to your global system environment." },
       { question: "Which services can it manage?", answer: "It covers common languages, databases, servers, Hosts, and custom services, with more integrations planned." },

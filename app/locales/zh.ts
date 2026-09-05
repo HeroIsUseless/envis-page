@@ -24,17 +24,16 @@ export const zh = {
     crossPlatform: "跨平台",
     platformSupport: "全平台支持",
     openSource: "开源",
-    license: "MIT 协议"
+    license: "GPL-3.0 协议"
   },
   why: {
-    eyebrow: "为什么选择 Envis",
-    title: "复杂留在工具里，开发回到代码中",
+    title: "为什么选择 Envis",
     description: "Envis 把安装、隔离、切换与共享串成一个完整工作流。即使同时维护多套技术栈，环境依然清晰、可控、随时可复现。",
     items: [
-      { title: "装得快", desc: "服务、版本与依赖按需安装，不再翻文档拼命令。", metric: "一键", label: "完成安装" },
-      { title: "切得稳", desc: "每个项目独立保存版本组合，旧项目与新技术栈互不干扰。", metric: "0", label: "全局污染" },
-      { title: "看得清", desc: "运行状态、系统资源和服务配置集中呈现，问题更容易定位。", metric: "10+", label: "服务统一管理" },
-      { title: "带得走", desc: "导出完整环境配置，在新设备或团队成员电脑上快速复现。", metric: "1 份", label: "配置跨设备" }
+      { title: "快速安装", desc: "服务、版本与依赖按需安装，不再翻文档拼命令。", metric: "一键", label: "完成安装" },
+      { title: "切换环境", desc: "每个项目独立保存版本组合，旧项目与新技术栈互不干扰。", metric: "0", label: "全局污染" },
+      { title: "配置集中", desc: "运行状态、系统资源和服务配置集中呈现，问题更容易定位。", metric: "10+", label: "服务统一管理" },
+      { title: "分享环境", desc: "导出完整环境配置，在新设备或团队成员电脑上快速复现。", metric: "1 份", label: "配置跨设备" }
     ]
   },
   features: {
@@ -153,7 +152,7 @@ export const zh = {
     eyebrow: "常见问题",
     title: "开始之前，你可能还想知道",
     items: [
-      { question: "Envis 是免费的吗？", answer: "是。Envis 是基于 MIT 协议发布的开源项目，你可以免费下载和使用。" },
+      { question: "Envis 是免费的吗？", answer: "是。Envis 是基于 GPL-3.0 协议发布的开源项目，你可以免费下载和使用。" },
       { question: "支持哪些操作系统？", answer: "Envis 面向 macOS、Windows 和 Linux 构建。当前页面提供 macOS Apple Silicon 安装包，其他平台版本请关注 GitHub Releases。" },
       { question: "它会修改我的全局环境吗？", answer: "Envis 的核心目标是让不同项目的服务和版本彼此隔离，尽量减少对系统全局环境的影响。" },
       { question: "可以管理哪些服务？", answer: "当前涵盖常见编程语言、数据库、服务器、Hosts 与自定义服务，并会持续扩展。" },
