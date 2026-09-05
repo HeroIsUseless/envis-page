@@ -1,52 +1,17 @@
 import type { Metadata } from 'next'
-import { promises as fs } from 'node:fs'
-import path from 'node:path'
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
-import styles from '../../../../docs/page.module.css'
+import { ClientRedirect } from '../../../../components/ClientRedirect'
 
 export const metadata: Metadata = {
-  title: 'CLI 命令 | 文档中心',
-  description: 'Envis 命令行使用说明，包含 use、list、refresh 等常用命令。',
+  title: 'CLI 命令',
   robots: {
-    index: true,
+    index: false,
     follow: true,
   },
   alternates: {
-    canonical: '/zh/docs/02_cli/',
-    languages: {
-      'zh-CN': '/zh/docs/02_cli/',
-      'en-US': '/en/docs/02_cli/',
-      'x-default': '/zh/docs/02_cli/',
-    },
+    canonical: '/zh/blog/cli-commands/',
   },
 }
 
-async function loadDocContent() {
-  const docPath = path.join(process.cwd(), 'docs', '02_cli', 'index.md')
-  try {
-    return await fs.readFile(docPath, 'utf8')
-  } catch {
-    return '# 文档暂不可用\n\n未找到 docs/02_cli/index.md 文件。'
-  }
-}
-
-export default async function ZhDocs02CliPage() {
-  const markdown = await loadDocContent()
-
-  return (
-    <main className={styles.page}>
-      <div className={styles.container}>
-        <nav className={styles.breadcrumb} aria-label="breadcrumb">
-          <a href="/zh/docs/">文档中心</a>
-          <span> / </span>
-          <span>CLI 命令</span>
-        </nav>
-
-        <article className={styles.markdown}>
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown>
-        </article>
-      </div>
-    </main>
-  )
+export default function ZhDocs02CliRedirect() {
+  return <ClientRedirect to="/zh/blog/cli-commands/" note="文档已合并到博客：正在跳转到 CLI 命令…" />
 }

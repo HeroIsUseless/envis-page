@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { ArrowLeft, CalendarDays, Clock3, Info, TerminalSquare } from 'lucide-react'
 import type { Locale } from '../lib/i18n'
+import { formatReadTime, getPost } from '../lib/blog-posts'
 import { BlogChrome } from './BlogChrome'
 
 const releasesZh = [
@@ -31,6 +32,7 @@ export function NodejsArticle({ locale }: { locale: Locale }) {
   const isZh = locale === 'zh'
   const prefix = isZh ? '/zh' : '/en'
   const releases = isZh ? releasesZh : releasesEn
+  const post = getPost('nodejs-versions', locale)
 
   return (
     <BlogChrome locale={locale}>
@@ -38,9 +40,9 @@ export function NodejsArticle({ locale }: { locale: Locale }) {
         <Link href={`${prefix}/blog/`} className="inline-flex items-center gap-2 text-sm text-gray-500 transition-colors hover:text-gray-950 dark:text-gray-400 dark:hover:text-white"><ArrowLeft className="h-4 w-4" />{isZh ? '全部文章' : 'All articles'}</Link>
         <header className="mt-10 border-b border-gray-200 pb-10 dark:border-white/10">
           <div className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 dark:text-blue-400"><TerminalSquare className="h-4 w-4" />Node.js</div>
-          <h1 className="mt-5 text-4xl font-semibold leading-tight text-gray-950 sm:text-6xl dark:text-white">{isZh ? 'Node.js 版本、npm 与 Corepack 完整指南' : 'A complete guide to Node.js versions, npm, and Corepack'}</h1>
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-gray-600 dark:text-gray-400">{isZh ? '理解版本发布节奏、关键运行时能力，以及 npm 包究竟被下载到哪里。' : 'Understand the release cadence, key runtime capabilities, and where npm packages actually go.'}</p>
-          <div className="mt-7 flex flex-wrap gap-5 text-xs text-gray-500 dark:text-gray-400"><span className="inline-flex items-center gap-1.5"><CalendarDays className="h-3.5 w-3.5" /><time dateTime="2026-09-04">2026-09-04</time></span><span className="inline-flex items-center gap-1.5"><Clock3 className="h-3.5 w-3.5" />{isZh ? '约 12 分钟' : '12 min read'}</span></div>
+          <h1 className="mt-5 text-4xl font-semibold leading-tight text-gray-950 sm:text-6xl dark:text-white">{post.title}</h1>
+          <p className="mt-6 max-w-3xl text-lg leading-8 text-gray-600 dark:text-gray-400">{post.lede}</p>
+          <div className="mt-7 flex flex-wrap gap-5 text-xs text-gray-500 dark:text-gray-400"><span className="inline-flex items-center gap-1.5"><CalendarDays className="h-3.5 w-3.5" /><time dateTime={post.date}>{post.date}</time></span><span className="inline-flex items-center gap-1.5"><Clock3 className="h-3.5 w-3.5" />{formatReadTime(post.readMinutes, locale)}</span></div>
         </header>
 
         <div className="prose-area mt-12 space-y-12 text-base leading-8 text-gray-700 dark:text-gray-300">

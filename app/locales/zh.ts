@@ -8,7 +8,6 @@ export const zh = {
   },
   nav: {
     github: "GitHub",
-    docs: "文档",
     blog: "博客",
     download: "下载"
   },
@@ -169,8 +168,7 @@ export const zh = {
   footer: {
     copyright: "© 2025 Envis",
     openSource: "开源项目",
-    github: "GitHub",
-    docs: "文档"
+    github: "GitHub"
   }
 }
 

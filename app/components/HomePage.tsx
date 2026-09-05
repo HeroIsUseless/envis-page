@@ -6,7 +6,6 @@ import {
   ArrowRight,
   Check,
   Download,
-  FileText,
   ExternalLink,
   Github,
   Newspaper,
@@ -21,7 +20,6 @@ interface HomePageProps {
 }
 
 export function HomePage({ locale, t }: HomePageProps) {
-  const docsHref = locale === 'zh' ? '/zh/docs/' : '/en/docs/'
   const blogHref = locale === 'zh' ? '/zh/blog/' : '/en/blog/'
 
   return (
@@ -62,14 +60,6 @@ export function HomePage({ locale, t }: HomePageProps) {
           >
             <Newspaper className="h-4 w-4" />
             <span className="hidden sm:inline">{t.nav.blog}</span>
-          </a>
-          <a
-            href={docsHref}
-            className="flex items-center gap-1.5 p-1.5 text-xs text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors sm:px-3"
-            aria-label={t.nav.docs}
-          >
-            <FileText className="w-4 h-4" />
-            <span className="hidden sm:inline">{t.nav.docs}</span>
           </a>
           <a
             href="https://github.com/xopenbeta/envis-app"
@@ -199,10 +189,10 @@ export function HomePage({ locale, t }: HomePageProps) {
                 </a>
                 <span>•</span>
                 <a
-                  href={locale === 'zh' ? '/zh/docs/' : '/en/docs/'}
+                  href={blogHref}
                   className="hover:text-gray-900 dark:hover:text-white transition-colors"
                 >
-                  {t.footer.docs}
+                  {t.nav.blog}
                 </a>
               </div>
             </div>

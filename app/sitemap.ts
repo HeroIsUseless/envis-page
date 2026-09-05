@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { BLOG_POSTS } from './lib/blog-posts'
 
 export const dynamic = 'force-static'
 
@@ -20,18 +21,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/zh/docs/`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/en/docs/`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
       url: `${baseUrl}/zh/blog/`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
@@ -43,17 +32,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.8,
     },
-    {
-      url: `${baseUrl}/zh/blog/nodejs-versions/`,
-      lastModified: '2026-09-04',
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/en/blog/nodejs-versions/`,
-      lastModified: '2026-09-04',
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
+    ...BLOG_POSTS.flatMap((p) =>
+      (['zh', 'en'] as const).map((locale) => ({
+        url: `${baseUrl}/${locale}/blog/${p.meta.slug}/`,
+        lastModified: p.meta.date,
+        changeFrequency: 'monthly' as const,
+        priority: 0.7,
+      }))
+    ),
   ]
 }

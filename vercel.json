@@ -21,7 +21,19 @@
           "value": "en"
         }
       ],
-      "destination": "/en/docs/",
+      "destination": "/en/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/",
+      "has": [
+        {
+          "type": "query",
+          "key": "lang",
+          "value": "en"
+        }
+      ],
+      "destination": "/en/blog/",
       "permanent": true
     },
     {
@@ -31,7 +43,72 @@
     },
     {
       "source": "/docs",
-      "destination": "/zh/docs/",
+      "destination": "/zh/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/",
+      "destination": "/zh/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/01_main",
+      "destination": "/zh/blog/envis-intro/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/01_main/",
+      "destination": "/zh/blog/envis-intro/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/02_cli",
+      "destination": "/zh/blog/cli-commands/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/02_cli/",
+      "destination": "/zh/blog/cli-commands/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs",
+      "destination": "/zh/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/",
+      "destination": "/zh/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/en/docs/01_main",
+      "destination": "/en/blog/envis-intro/",
+      "permanent": true
+    },
+    {
+      "source": "/en/docs/01_main/",
+      "destination": "/en/blog/envis-intro/",
+      "permanent": true
+    },
+    {
+      "source": "/en/docs/02_cli",
+      "destination": "/en/blog/cli-commands/",
+      "permanent": true
+    },
+    {
+      "source": "/en/docs/02_cli/",
+      "destination": "/en/blog/cli-commands/",
+      "permanent": true
+    },
+    {
+      "source": "/en/docs",
+      "destination": "/en/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/en/docs/",
+      "destination": "/en/blog/",
       "permanent": true
     }
   ]

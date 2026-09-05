@@ -10,7 +10,6 @@ export const en: Translations = {
   },
   nav: {
     github: "GitHub",
-    docs: "Documentation",
     blog: "Blog",
     download: "Download"
   },
@@ -171,7 +170,6 @@ export const en: Translations = {
   footer: {
     copyright: "© 2025 Envis",
     openSource: "Open Source",
-    github: "GitHub",
-    docs: "Documentation"
+    github: "GitHub"
   }
 }

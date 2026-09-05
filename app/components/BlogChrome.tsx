@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { FileText, Github, Home, Newspaper } from 'lucide-react'
+import { Github, Home, Newspaper } from 'lucide-react'
 import type { Locale } from '../lib/i18n'
 import { LanguageSwitcher } from './LanguageSwitcher'
 import { ThemeToggle } from './ThemeToggle'
@@ -22,7 +22,6 @@ export function BlogChrome({ locale, children }: { locale: Locale; children: Rea
           <div className="flex items-center gap-1 sm:gap-2">
             <LanguageSwitcher locale={locale} />
             <ThemeToggle locale={locale} />
-            <Link href={`${prefix}/docs/`} className="p-2 text-gray-500 transition-colors hover:text-gray-950 dark:text-gray-400 dark:hover:text-white" title={isZh ? '文档' : 'Documentation'} aria-label={isZh ? '文档' : 'Documentation'}><FileText className="h-4 w-4" /></Link>
             <a href="https://github.com/xopenbeta/envis-app" target="_blank" rel="noopener noreferrer" className="p-2 text-gray-500 transition-colors hover:text-gray-950 dark:text-gray-400 dark:hover:text-white" title="GitHub" aria-label="GitHub"><Github className="h-4 w-4" /></a>
           </div>
         </div>
