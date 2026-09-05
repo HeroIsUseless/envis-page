@@ -3,7 +3,6 @@
 import Image from 'next/image'
 import type { PointerEvent } from 'react'
 import {
-  ArrowRight,
   Boxes,
   Braces,
   CircleHelp,
@@ -119,10 +118,7 @@ export function ProductStory({ t }: ProductStoryProps) {
                     <Icon className="relative h-12 w-12" strokeWidth={1.35} />
                   </div>
                   <div className="relative px-3 pb-4 pt-5">
-                    <div className="flex items-center justify-between gap-3">
-                      <h3 className="text-lg font-semibold text-gray-950 dark:text-white">{item.title}</h3>
-                      <ArrowRight className="h-4 w-4 text-gray-400" />
-                    </div>
+                    <h3 className="text-lg font-semibold text-gray-950 dark:text-white">{item.title}</h3>
                     <p className="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-400">{item.desc}</p>
                   </div>
                 </GlareHover>
@@ -139,6 +135,7 @@ export function ProductStory({ t }: ProductStoryProps) {
           description={t.workflow.description}
           id="workflow-title"
           icon={Shuffle}
+          color="text-blue-600 dark:text-blue-400"
         />
         <div className="mt-12 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {t.workflow.items.map((item, index) => {
@@ -150,9 +147,6 @@ export function ProductStory({ t }: ProductStoryProps) {
                 </div>
                 <h3 className="text-lg font-semibold text-gray-950 dark:text-white">{item.title}</h3>
                 <p className="mt-3 text-sm leading-6 text-gray-600 dark:text-gray-400">{item.desc}</p>
-                {index < t.workflow.items.length - 1 && (
-                  <ArrowRight className="absolute -right-3 top-1/2 z-10 hidden h-6 w-6 rounded-full border border-gray-200 bg-white p-1 text-gray-400 lg:block dark:border-white/10 dark:bg-[#080808]" />
-                )}
               </article>
             )
           })}
@@ -166,6 +160,7 @@ export function ProductStory({ t }: ProductStoryProps) {
           description={t.showcase.description}
           id="showcase-title"
           icon={LayoutDashboard}
+          color="text-emerald-600 dark:text-emerald-400"
         />
         <div className="mt-16 space-y-20 sm:space-y-28">
           {t.showcase.items.map((item, index) => (
@@ -175,14 +170,14 @@ export function ProductStory({ t }: ProductStoryProps) {
                 <p className="mt-5 text-base leading-7 text-gray-600 dark:text-gray-400">{item.desc}</p>
               </div>
               <div className={`lg:col-span-8 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                <div className="product-frame overflow-hidden rounded-lg border border-gray-200 bg-[#f4f6f8] p-2 shadow-[0_24px_70px_-30px_rgba(15,23,42,0.35)] sm:p-3 dark:border-white/10 dark:bg-white/5">
+                <div className="product-frame overflow-hidden rounded-lg shadow-[0_24px_70px_-30px_rgba(15,23,42,0.35)]">
                   <Image
                     src={item.image}
                     alt={item.alt}
                     width={1600}
                     height={1200}
                     sizes="(max-width: 1024px) 100vw, 66vw"
-                    className="h-auto w-full rounded-md border border-black/5"
+                    className="h-auto w-full"
                   />
                 </div>
               </div>
@@ -198,6 +193,7 @@ export function ProductStory({ t }: ProductStoryProps) {
           description={t.capabilities.description}
           id="capabilities-title"
           icon={Layers3}
+          color="text-amber-600 dark:text-amber-400"
         />
         <div className="mt-12 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {t.capabilities.items.map((item, index) => {
@@ -213,59 +209,8 @@ export function ProductStory({ t }: ProductStoryProps) {
         </div>
       </section>
 
-      <section className="py-16 sm:py-24" aria-labelledby="services-title">
-        <div className="overflow-hidden rounded-lg bg-blue-50 px-4 py-8 text-gray-950 sm:px-8 sm:py-10 lg:px-12 dark:bg-[#0b1625] dark:text-white">
-          <div className="grid items-center gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-12">
-            <div>
-              <p className="font-mono text-xs font-semibold uppercase text-blue-600 dark:text-blue-300">10+ Services</p>
-              <h2 id="services-title" className="mt-4 text-3xl font-semibold leading-tight sm:text-4xl">
-                {t.features.oneClickInstall.title}
-              </h2>
-              <p className="mt-5 max-w-lg text-base leading-7 text-gray-600 dark:text-gray-300">{t.features.oneClickInstall.desc}</p>
-            </div>
-            <div className="relative h-[min(19rem,34vw)] w-full overflow-hidden">
-              <div className="absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2">
-                <OrbitImages
-                  images={[
-                    '/services/nodejs.svg',
-                    '/services/python.svg',
-                    '/services/java.svg',
-                    '/services/mongodb.svg',
-                    '/services/postgresql.svg',
-                    '/services/nginx.svg',
-                    '/services/redis.svg',
-                  ]}
-                  altPrefix="Service"
-                  shape="ellipse"
-                  radiusX={440}
-                  radiusY={150}
-                  rotation={-8}
-                  duration={30}
-                  itemSize={120}
-                  responsive
-                  showPath
-                  pathColor="rgba(96, 165, 250, 0.28)"
-                  pathWidth={1.5}
-                  centerContent={
-                    <div className="hidden items-center gap-2.5 rounded-full border border-blue-100 bg-white/80 px-5 py-2.5 shadow-xl shadow-blue-900/10 backdrop-blur sm:flex dark:border-white/10 dark:bg-white/10">
-                      <Sparkles className="h-4.5 w-4.5 text-blue-600 dark:text-blue-300" />
-                      <span className="text-sm font-semibold text-gray-900 dark:text-white">10+ Services</span>
-                    </div>
-                  }
-                />
-              </div>
-              <ul className="sr-only">
-                {['Node.js', 'Python', 'Java', 'MongoDB', 'PostgreSQL', 'Nginx', 'Redis', 'Hosts', 'Custom'].map((name) => (
-                  <li key={name}>{name}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section id="audience" className="scroll-mt-24 py-16 sm:py-24" aria-labelledby="audience-title">
-        <SectionHeading eyebrow={t.audience.eyebrow} title={t.audience.title} id="audience-title" icon={Users} />
+        <SectionHeading eyebrow={t.audience.eyebrow} title={t.audience.title} id="audience-title" icon={Users} color="text-rose-600 dark:text-rose-400" />
         <div className="mt-12 grid gap-5 md:grid-cols-3">
           {t.audience.items.map((item, index) => {
             const Icon = audienceIcons[index]
@@ -282,7 +227,7 @@ export function ProductStory({ t }: ProductStoryProps) {
 
       <section id="faq" className="scroll-mt-24 py-16 sm:py-24" aria-labelledby="faq-title">
         <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
-          <SectionHeading eyebrow={t.faq.eyebrow} title={t.faq.title} id="faq-title" icon={CircleHelp} />
+          <SectionHeading eyebrow={t.faq.eyebrow} title={t.faq.title} id="faq-title" icon={CircleHelp} color="text-violet-600 dark:text-violet-400" />
           <div className="border-t border-gray-200 dark:border-white/10">
             {t.faq.items.map((item, index) => (
               <details key={item.question} className="group border-b border-gray-200 px-3 py-1 transition-colors hover:bg-blue-50/70 dark:border-white/10 dark:hover:bg-blue-500/5" open={index === 0}>
@@ -309,24 +254,68 @@ export function ProductStory({ t }: ProductStoryProps) {
           glareAngle={-45}
           glareSize={250}
           transitionDuration={800}
-          className="px-6 py-14 text-center text-gray-950 sm:px-12 sm:py-20 dark:text-white"
+          className="px-6 py-14 text-gray-950 sm:px-12 sm:py-20 dark:text-white"
           style={{ display: 'block', placeItems: 'normal' }}
         >
           <Cpu className="ambient-glow absolute -right-10 -top-14 h-64 w-64 text-blue-600/[0.07] dark:text-white/5" strokeWidth={0.8} />
-          <p className="relative text-xs font-semibold uppercase text-blue-600 dark:text-blue-400">{t.finalCta.eyebrow}</p>
-          <h2 id="download-title" className="relative mx-auto mt-5 max-w-3xl text-3xl font-semibold leading-tight sm:text-5xl">
-            {t.finalCta.title}
-          </h2>
-          <p className="relative mx-auto mt-5 max-w-xl text-base leading-7 text-gray-600 dark:text-gray-400">{t.finalCta.description}</p>
-          <div className="relative mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a href="/Envis_0.1.0_aarch64.dmg" download className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-blue-700 sm:w-auto">
-              <Download className="h-4 w-4" />
-              {t.finalCta.download}
-            </a>
-            <a href="https://github.com/xopenbeta/envis-app/releases" target="_blank" rel="noopener noreferrer" className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-gray-300 bg-white px-6 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-50 sm:w-auto dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:bg-white/10">
-              <Github className="h-4 w-4" />
-              {t.finalCta.release}
-            </a>
+          <div className="relative grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
+            <div>
+              <p className="text-xs font-semibold uppercase text-blue-600 dark:text-blue-400">{t.finalCta.eyebrow}</p>
+              <h2 id="download-title" className="mt-5 text-3xl font-semibold leading-tight sm:text-5xl">
+                {t.finalCta.title}
+              </h2>
+              <p className="mt-5 max-w-xl text-base leading-7 text-gray-600 dark:text-gray-400">{t.finalCta.description}</p>
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                <a href="/Envis_0.1.0_aarch64.dmg" download className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-blue-700 sm:w-auto">
+                  <Download className="h-4 w-4" />
+                  {t.finalCta.download}
+                </a>
+                <a href="https://github.com/xopenbeta/envis-app/releases" target="_blank" rel="noopener noreferrer" className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-gray-300 bg-white px-6 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-50 sm:w-auto dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:bg-white/10">
+                  <Github className="h-4 w-4" />
+                  {t.finalCta.release}
+                </a>
+              </div>
+            </div>
+            <div className="relative h-[min(19rem,34vw)] w-full overflow-hidden">
+              <div className="absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2">
+                <OrbitImages
+                  images={[
+                    '/services/nodejs.svg',
+                    '/services/python.svg',
+                    '/services/java.svg',
+                    '/services/mongodb.svg',
+                    '/services/postgresql.svg',
+                    '/services/nginx.svg',
+                    '/services/redis.svg',
+                  ]}
+                  altPrefix="Service"
+                  shape="ellipse"
+                  radiusX={440}
+                  radiusY={150}
+                  rotation={-8}
+                  duration={30}
+                  itemSize={120}
+                  responsive
+                  showPath
+                  pathColor="rgba(96, 165, 250, 0.28)"
+                  pathWidth={1.5}
+                  centerContent={
+                    <Image
+                      src="/app-icon.png"
+                      alt="Envis"
+                      width={96}
+                      height={96}
+                      className="h-12 w-12"
+                    />
+                  }
+                />
+              </div>
+              <ul className="sr-only">
+                {['Node.js', 'Python', 'Java', 'MongoDB', 'PostgreSQL', 'Nginx', 'Redis', 'Hosts', 'Custom'].map((name) => (
+                  <li key={name}>{name}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         </GlareHover>
       </section>
@@ -334,13 +323,11 @@ export function ProductStory({ t }: ProductStoryProps) {
   )
 }
 
-function SectionHeading({ eyebrow, title, description, id, icon: Icon }: { eyebrow: string; title: string; description?: string; id: string; icon: typeof Sparkles }) {
+function SectionHeading({ eyebrow, title, description, id, icon: Icon, color }: { eyebrow: string; title: string; description?: string; id: string; icon: typeof Sparkles; color: string }) {
   return (
     <div className="max-w-3xl">
-      <div className="flex items-center gap-3 text-lg font-bold text-blue-600 sm:text-xl dark:text-blue-400">
-        <span className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-50 dark:bg-blue-500/10">
-          <Icon className="h-5 w-5" strokeWidth={2} />
-        </span>
+      <div className={`flex items-center gap-2 text-base font-bold sm:text-lg ${color}`}>
+        <Icon className="h-5 w-5" strokeWidth={2} />
         <span>{eyebrow}</span>
       </div>
       <h2 id={id} className="mt-4 text-3xl font-semibold leading-tight text-gray-950 sm:text-4xl lg:text-5xl dark:text-white">{title}</h2>

@@ -86,8 +86,8 @@ export const zh = {
     }
   },
   showcase: {
-    eyebrow: "从创建到运行",
-    title: "一套界面，管好每个项目的开发环境",
+    eyebrow: "界面",
+    title: "一套界面管好每个项目的开发环境",
     description: "不再在安装器、终端、配置文件和系统设置之间来回切换。Envis 把环境的完整生命周期收进一个清晰的工作区。",
     items: [
       {
@@ -114,8 +114,8 @@ export const zh = {
     ]
   },
   workflow: {
-    eyebrow: "完整工作流",
-    title: "环境管理，本来就该这么直接",
+    eyebrow: "流程",
+    title: "环境管理本来就该这么直接",
     description: "把高频但容易出错的环境操作，变成可看见、可复用、可迁移的四步流程。",
     items: [
       { title: "创建", desc: "按项目建立隔离工作区，不再改乱全局环境。" },
@@ -125,7 +125,7 @@ export const zh = {
     ]
   },
   capabilities: {
-    eyebrow: "更多能力",
+    eyebrow: "能力",
     title: "为真实开发现场准备的细节",
     description: "从日常切换到团队协作，常用能力都在同一个本地工具里。",
     items: [
@@ -140,7 +140,7 @@ export const zh = {
     ]
   },
   audience: {
-    eyebrow: "适合谁",
+    eyebrow: "人群",
     title: "一个人更省事，一个团队更一致",
     items: [
       { title: "多项目开发者", desc: "同时维护新旧项目，不再手动切换一长串依赖。" },
@@ -149,7 +149,7 @@ export const zh = {
     ]
   },
   faq: {
-    eyebrow: "常见问题",
+    eyebrow: "问答",
     title: "开始之前，你可能还想知道",
     items: [
       { question: "Envis 是免费的吗？", answer: "是。Envis 是基于 GPL-3.0 协议发布的开源项目，你可以免费下载和使用。" },
@@ -161,7 +161,7 @@ export const zh = {
   },
   finalCta: {
     eyebrow: "开源 · 本地优先 · 跨平台",
-    title: "把时间留给代码，不要留给环境配置",
+    title: "把时间留给代码而非环境配置",
     description: "下载 Envis，创建你的第一个可复用开发环境。",
     download: "下载 macOS 版",
     release: "查看 GitHub Releases"

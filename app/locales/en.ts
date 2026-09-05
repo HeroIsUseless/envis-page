@@ -88,7 +88,7 @@ export const en: Translations = {
     }
   },
   showcase: {
-    eyebrow: "From setup to running",
+    eyebrow: "Interface",
     title: "One workspace for every project's environment",
     description: "Stop bouncing between installers, terminals, config files, and system settings. Envis brings the full environment lifecycle into one clear workspace.",
     items: [
@@ -116,7 +116,7 @@ export const en: Translations = {
     ]
   },
   workflow: {
-    eyebrow: "A complete workflow",
+    eyebrow: "Workflow",
     title: "Environment management should feel this direct",
     description: "Turn frequent, error-prone setup work into a visible, reusable, and portable four-step flow.",
     items: [
@@ -127,7 +127,7 @@ export const en: Translations = {
     ]
   },
   capabilities: {
-    eyebrow: "More capabilities",
+    eyebrow: "Capabilities",
     title: "Details built for real development work",
     description: "From daily switching to team onboarding, the essentials live in one local tool.",
     items: [
@@ -142,7 +142,7 @@ export const en: Translations = {
     ]
   },
   audience: {
-    eyebrow: "Who it is for",
+    eyebrow: "Audience",
     title: "Less friction solo. More consistency together.",
     items: [
       { title: "Multi-project developers", desc: "Maintain new and legacy projects without manually changing a chain of dependencies." },
@@ -163,7 +163,7 @@ export const en: Translations = {
   },
   finalCta: {
     eyebrow: "Open source · Local first · Cross-platform",
-    title: "Keep your time for code, not environment setup",
+    title: "Keep your time for code instead of environment setup",
     description: "Download Envis and create your first reusable development environment.",
     download: "Download for macOS",
     release: "View GitHub Releases"
